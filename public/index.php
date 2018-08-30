@@ -1,14 +1,19 @@
 <?php
-require_once("../includes/database.php");
-require_once("../includes/user.php");
+require_once("../includes/functions.php");
+//require_once("../includes/database.php");
+//require_once("../includes/user.php");
 
-$record = User::find_by_id(3);
-$user = new User();
-$user->userid = $record['user_id'];
-$user->username = $record['user_name'];
+$junk = new Junk();
+$user = User::find_by_id(1);
+echo $user->full_name()."<br />";
 
-echo $user->full_name();
+$users = User::find_all();
 
+foreach($users as $user) {
+echo "User: ".$user->username."<br />";
+echo "Name: ".$user->full_name()."<br /><br />";
+
+}
 
 
 ?>
