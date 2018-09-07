@@ -4,14 +4,20 @@
 
 class Session {
 
-    private $logged_in;
+    private $logged_in=false;
     public $user_id;
 
-    function __construct)(){
+    function __construct(){
         session_start();
         $this->check_login();
-        
+
+        if ($this->logged_in) {
+            //actions to take right away within the class if user is logged in
+        } else {
+            //actions to take right away within the class of user is not logged in
+        }
     }
+
     public function is_logged_in() {
         return $this->logged_in;
     }
