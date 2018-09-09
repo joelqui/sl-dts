@@ -1,33 +1,28 @@
 <?php
 require_once('database.php');
 
-class User {
+class User extends DatabaseObject {
+
+    protected static $primary_key = "user_id";
+    protected static $table_name="users";
+    protected static $db_fields = array('user_id','username','password',
+    'first_name','last_name','usertype','dept_id','personnel_id');
     public $user_id;
     public $username;
     public $password;
     public $first_name;
     public $last_name;
-    public $usertype;    
-
-    public static function find_all() {
-        return self::find_by_sql("SELECT * FROM users");
-    }
- 
-    public static function find_by_id($id=0){
-        global $database;
-        $result_array = self::find_by_sql("SELECT * FROM users WHERE user_id={$id} LIMIT 1");
-        return !empty($result_array) ? array_shift($result_array) : false;
-    }
-
-    public static function find_by_sql($sql=""){
-        global $database;
-        $result_set = $database->query($sql);
-        $object_array = array();
-        while ($row = $database->fetch_array($result_set)){
-            $object_array[] = self::instantiate($row);
+    public $dept_id;
+    public $usertype;
+    public $personnel_id;
+  
+    public function full_name() {
+        if(isset($this->first_name) && isset($this->last_name)) {
+            return $this->first_name . " " . $this->last_name;
+        } else {
+            return "";
         }
-        return $object_array;
-    } 
+    }
 
     public static function authenticate ($username="", $password="") {
         global $database;
@@ -43,28 +38,21 @@ class User {
         return !empty($result_array) ? array_shift($result_array) : false;
     }
 
-    public function full_name() {
-        if(isset($this->first_name) && isset($this->last_name)) {
-            return $this->first_name . " " . $this->last_name;
-        } else {
-            return "";
-        }
+    
+
+    
+
+    public function save() {
+        return isset($this->user_id) ? $this->update() : $this->create();
     }
 
-    private static function instantiate($record) {
-        $object = new self;
-        foreach($record as $attribute=>$value){
-            if($object->has_attribute($attribute)) {
-                $object->$attribute = $value;
-            }
-        }
-    return $object;
-    }
+    
 
-    private function has_attribute($attribute) {
-        $object_vars = get_object_vars($this);
-        return array_key_exists($attribute, $object_vars);
-    }
+    
+
+    
+
+ 
 
 }
 

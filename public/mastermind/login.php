@@ -1,22 +1,29 @@
 <?php
-require_once("../../includes/functions.php");
-require_once("../../includes/session.php");
-require_once("../../includes/database.php");
-require_once("../../includes/user.php");
+require_once("../../includes/initialize.php");
 
+/*
 if($session->is_logged_in()) {
-    redirect_to(index.php);
-}
+    redirect_to('index.php');
+}*/
 
 echo 'YOU\'RE NOT LOGGED IN'.'<br />';
-$username = 'queennie';
-$password = 'parola';
+$username = 'joelqui';
+$password = 'password';
+$_SESSION['ftuse']=66;
 
 $found_user = User::authenticate($username, $password);
+
 if ($found_user) {
-    echo 'User FOUND';
+    $session->login($found_user->user_id);
+    echo 'User ID of user logged in is '.$_SESSION['user_id'].' '.$_SESSION['ftuse'];
 } else {
     echo 'Incorrect credentials';
+}
+
+if($_SESSION['ftuse']){
+    echo 'okay';
+} else {
+    echo 'not okay';
 }
 
 ?>
