@@ -1,0 +1,20 @@
+Users lacking fcns
+reset password
+
+Documents
+ Create
+ Update
+ Delete
+ Find By Id
+ FInd All
+
+Dept
+ Create
+ Update
+ Delete
+ Find All
+
+Functions By Pages
+
+
+

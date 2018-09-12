@@ -106,7 +106,7 @@ class DatabaseObject {
         // - DELETE FROM table WHERE condition LIMIT 1
         // - escape all values to prevent SQL injection
         // - use LIMIT 1
-        $sql = "DELETE FROM users ";
+        $sql = "DELETE FROM ".static::$table_name." ";
         $sql .= "WHERE ".static::$primary_key."=". $database->escape_value($this->{static::$primary_key});
         $sql .= " LIMIT 1";
         echo $sql;
