@@ -15,6 +15,26 @@ Dept
  Find All
 
 Functions By Pages
+Add Document
+    Document.create.
+
+Dept Mgmt
+    Department.create.edit.delete.view
+
+Document Mgmt
+    Document.edit.delete.view
+
+Documents on Hand
+    DocHistory.Incoming.OnQueue.Forwarded.AddRemarks
+
+Track Document
+    DocHistory.View
+
+User Mgmt
+    User.create.edit.delete.resetpassword
+
+
+
 
 
 
