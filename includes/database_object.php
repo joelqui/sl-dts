@@ -72,6 +72,8 @@ class DatabaseObject {
         $sql .= ") VALUES ('";
         $sql .= join("', '", array_values($attributes));
         $sql .= "')";
+
+        echo $sql;
         if($database->query($sql)) {
             $this->{static::$primary_key} = $database->insert_id();
             //echo $this->{static::$primary_key}." was added to the database.";

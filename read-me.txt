@@ -30,8 +30,9 @@ Documents on Hand
 Track Document
     DocHistory.View
 
-User Mgmt
-    User.create.edit.delete.resetpassword
+//User Mgmt
+    User.
+	create.edit.delete.resetpassword
 
 
 

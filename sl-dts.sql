@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 14, 2018 at 01:33 AM
+-- Generation Time: Sep 16, 2018 at 08:41 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 5.6.37
 
@@ -59,7 +59,7 @@ CREATE TABLE `documents` (
   `date_completed` date NOT NULL,
   `personnel_id` int(11) NOT NULL,
   `doc_owner` varchar(100) NOT NULL,
-  `doc_type` enum('Communication','Submission','Request','For Processing') NOT NULL
+  `doc_type` enum('COMM','SUBM','RQST','PROC') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -68,13 +68,61 @@ CREATE TABLE `documents` (
 
 INSERT INTO `documents` (`doc_id`, `doc_name`, `doc_trackingnum`, `doc_code`, `doc_status`, `date_started`, `date_completed`, `personnel_id`, `doc_owner`, `doc_type`) VALUES
 (1, 'LITTLe PAPU', 186759, 'HGFHGFS', 'In Transit', '0000-00-00', '0000-00-00', 2, 'JAW CYDA', ''),
-(2, 'LITTLe PAPU', 186759, 'HGFHGFS', 'In Transit', '0000-00-00', '0000-00-00', 2, 'JAW CYDA', 'Communication'),
-(3, 'LITTLe PAPU', 186759, 'HGFHGFS', 'In Transit', '0000-00-00', '0000-00-00', 2, 'JAW CYDA', 'Communication'),
-(4, 'LITTLe PAPU', 186759, 'HGFHGFS', 'In Transit', '0000-00-00', '0000-00-00', 2, 'JAW CYDA', 'Communication'),
-(5, 'LITTLe PAPU', 186759, 'HGFHGFS', 'In Transit', '0000-00-00', '0000-00-00', 2, 'JAW CYDA', 'Communication'),
-(6, 'LITTLe PAPU', 186759, 'HGFHGFS', 'In Transit', '2018-01-01', '2018-02-02', 2, 'JAW CYDA', 'Communication'),
-(7, 'LITTLe PAPU', 186759, 'HGFHGFS', 'In Transit', '0000-00-00', '2018-02-02', 2, 'JAW CYDA', 'Communication'),
-(8, 'LITTLehfhgU', 1823329, 'hgfhfghfgh', 'Completed', '2018-01-01', '2018-02-02', 3, 'JUDE lAW', 'Request');
+(2, 'LITTLe PAPU', 186759, 'HGFHGFS', 'In Transit', '0000-00-00', '0000-00-00', 2, 'JAW CYDA', ''),
+(3, 'LITTLe PAPU', 186759, 'HGFHGFS', 'In Transit', '0000-00-00', '0000-00-00', 2, 'JAW CYDA', ''),
+(4, 'LITTLe PAPU', 186759, 'HGFHGFS', 'In Transit', '0000-00-00', '0000-00-00', 2, 'JAW CYDA', ''),
+(5, 'LITTLe PAPU', 186759, 'HGFHGFS', 'In Transit', '0000-00-00', '0000-00-00', 2, 'JAW CYDA', ''),
+(6, 'LITTLe PAPU', 186759, 'HGFHGFS', 'In Transit', '2018-01-01', '2018-02-02', 2, 'JAW CYDA', ''),
+(7, 'LITTLe PAPU', 186759, 'HGFHGFS', 'In Transit', '0000-00-00', '2018-02-02', 2, 'JAW CYDA', ''),
+(80, 'LITTLehfhgU', 180915001, 'hgfhfghfgh', 'In Transit', '2018-09-15', '0000-00-00', 3, 'JUDE lAW', ''),
+(81, 'LITTLehfhgU', 180915002, 'hgfhfghfgh', 'In Transit', '2018-09-15', '0000-00-00', 3, 'JUDE lAW', ''),
+(82, 'LITTLehfhgU', 180915003, 'hgfhfghfgh', 'In Transit', '2018-09-15', '0000-00-00', 3, 'JUDE lAW', ''),
+(83, 'LITTLehfhgU', 180915004, 'hgfhfghfgh', 'In Transit', '2018-09-15', '0000-00-00', 3, 'JUDE lAW', ''),
+(84, 'LITTLehfhgU', 180915005, 'hgfhfghfgh', 'In Transit', '2018-09-15', '0000-00-00', 3, 'JUDE lAW', ''),
+(85, 'LITTLehfhgU', 180915006, 'hgfhfghfgh', 'In Transit', '2018-09-15', '0000-00-00', 3, 'JUDE lAW', ''),
+(86, 'LITTLehfhgU', 180915007, 'hgfhfghfgh', 'In Transit', '2018-09-15', '0000-00-00', 3, 'JUDE lAW', ''),
+(87, 'LITTLehfhgU', 180915008, 'hgfhfghfgh', 'In Transit', '2018-09-15', '0000-00-00', 3, 'JUDE lAW', ''),
+(88, 'LITTLehfhgU', 180915009, 'hgfhfghfgh', 'In Transit', '2018-09-15', '0000-00-00', 3, 'JUDE lAW', ''),
+(89, 'LITTLehfhgU', 180915010, 'hgfhfghfgh', 'In Transit', '2018-09-15', '0000-00-00', 3, 'JUDE lAW', ''),
+(90, 'LITTLehfhgU', 180915011, 'hgfhfghfgh', 'In Transit', '2018-09-15', '0000-00-00', 3, 'JUDE lAW', ''),
+(91, 'Accomplishment report', 180915012, 'JKQ-AR', 'In Transit', '2018-09-15', '0000-00-00', 3, 'JOEL KEE QUILANTANG', ''),
+(92, 'Accomplishment report', 180915013, 'JKQ-AR', 'In Transit', '2018-09-15', '0000-00-00', 3, 'JOEL KEE QUILANTANG', 'RQST'),
+(93, 'Accomplishment report', 180915014, 'JKQ-AR', 'In Transit', '2018-09-15', '0000-00-00', 3, 'JOEL KEE QUILANTANG', 'RQST'),
+(94, 'Accomplishment report', 180915015, 'JKQ-AR', 'In Transit', '2018-09-15', '0000-00-00', 3, 'JOEL KEE QUILANTANG', 'RQST'),
+(95, 'Accomplishment report', 180915016, 'JKQ-AR', 'In Transit', '2018-09-15', '0000-00-00', 3, 'JOEL KEE QUILANTANG', 'RQST'),
+(96, 'Accomplishment report', 180915017, 'JKQ-AR', 'In Transit', '2018-09-15', '0000-00-00', 3, 'JOEL KEE QUILANTANG', 'RQST'),
+(97, 'Accomplishment report', 180915018, 'JKQ-AR', 'In Transit', '2018-09-15', '0000-00-00', 3, 'JOEL KEE QUILANTANG', 'RQST');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `documents_history`
+--
+
+CREATE TABLE `documents_history` (
+  `dochist_id` int(11) NOT NULL,
+  `doc_id` int(11) NOT NULL,
+  `dochist_type` enum('RECEIVED AT','FORWARDED TO','REMARKS ADDED AT','FORWARD CANCELED AT','MARKED COMPLETED AT','DOCUMENT CANCELED AT') NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `dept_id` int(11) NOT NULL,
+  `dochist_remarks` varchar(100) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `is_last` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='table for tracking documents history';
+
+--
+-- Dumping data for table `documents_history`
+--
+
+INSERT INTO `documents_history` (`dochist_id`, `doc_id`, `dochist_type`, `user_id`, `dept_id`, `dochist_remarks`, `timestamp`, `is_last`) VALUES
+(1, 0, 'FORWARDED TO', 3, 4, '', '2018-09-15 19:55:19', 0),
+(2, 0, 'FORWARDED TO', 3, 4, '', '2018-09-15 19:56:44', 0),
+(3, 0, 'FORWARDED TO', 3, 4, '', '2018-09-15 19:56:47', 0),
+(4, 0, 'FORWARDED TO', 3, 4, '', '2018-09-15 19:57:19', 0),
+(5, 0, 'FORWARDED TO', 3, 4, '', '2018-09-15 19:57:19', 0),
+(6, 0, 'FORWARDED TO', 3, 4, 'FUCKING SHIT', '2018-09-15 19:57:33', 0),
+(7, 0, 'FORWARDED TO', 3, 4, 'FUCKING SHIT', '2018-09-15 20:01:23', 0),
+(8, 0, 'FORWARDED TO', 3, 4, 'FUCKING SHIT', '2018-09-15 20:01:54', 1);
 
 -- --------------------------------------------------------
 
@@ -121,6 +169,12 @@ ALTER TABLE `documents`
   ADD PRIMARY KEY (`doc_id`);
 
 --
+-- Indexes for table `documents_history`
+--
+ALTER TABLE `documents_history`
+  ADD PRIMARY KEY (`dochist_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -140,7 +194,13 @@ ALTER TABLE `departments`
 -- AUTO_INCREMENT for table `documents`
 --
 ALTER TABLE `documents`
-  MODIFY `doc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `doc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
+
+--
+-- AUTO_INCREMENT for table `documents_history`
+--
+ALTER TABLE `documents_history`
+  MODIFY `dochist_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`

@@ -38,19 +38,57 @@ $dept->dept_abbreviation = "SGOD_HRD";
 $dept->dept_head = 134;
 
 $dept->create();
+
+$string = "school form 7 report";
+
+ // allow only letters
+ $res = preg_replace("/[^a-zA-Z]/", "", $string);
+
+ $vowels = array("a", "e", "i", "o", "u", "A", "E", "I", "O", "U", " ");
+$res = str_replace($vowels, "", $res);
+ // trim what's left to 8 chars
+ $res = substr($res, 0, 8);
+
+ // make lowercase
+ $res = strtoupper($res);
+echo $res;
+*/
+/*
+$newdoc = new Document;
+$newdoc->doc_name="Accomplishment report";
+$newdoc->doc_code="hgfhfghfgh";
+
+$newdoc->personnel_id=3;
+$newdoc->doc_owner="JOEL KEE QUILANTANG";
+$newdoc->doc_type=3;
+$newdoc->generate_trackingnum();
+$newdoc->generate_code();
+$newdoc->doc_status=1;
+$newdoc->date_started=date('Y-m-d');
+
+echo $newdoc->doc_trackingnum;
+$newdoc->create();
+
+$num = Document::daily_count()+1;
+$str_length = 3;
+
+// hardcoded left padding if number < $str_length
+$str = substr("000{$num}", -$str_length);
+
+$f = Document::find_by_id(92);
+echo "<br>".$f->doc_trackingnum.'-'.$f->doc_type.'-'.$f->doc_code;
 */
 
-$newdoc = new Document;
-$newdoc->doc_name="LITTLehfhgU";
-$newdoc->doc_trackingnum=1823329;
-$newdoc->doc_code="hgfhfghfgh";
-$newdoc->doc_status=3;
-$newdoc->date_started='2018-01-01';
-$newdoc->date_completed='2018-02-02';
-$newdoc->personnel_id=3;
-$newdoc->doc_owner="JUDE lAW";
-$newdoc->doc_type=3;
 
-$newdoc->create();
+$dhist = new DocumentHistory;
+
+$dhist->dochist_type=2;
+$dhist->user_id=3;
+$dhist->dept_id=4;
+$dhist->dochist_remarks='FUCKING SHIT';
+
+$dhist->create();
+
+
 
 ?>
