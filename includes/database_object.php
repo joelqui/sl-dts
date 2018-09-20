@@ -73,7 +73,6 @@ class DatabaseObject {
         $sql .= join("', '", array_values($attributes));
         $sql .= "')";
 
-        echo $sql;
         if($database->query($sql)) {
             $this->{static::$primary_key} = $database->insert_id();
             //echo $this->{static::$primary_key}." was added to the database.";
@@ -97,6 +96,7 @@ class DatabaseObject {
         $sql = "UPDATE ".static::$table_name." SET ";
         $sql .= join(", ", $attribute_pairs);
         $sql .= " WHERE ".static::$primary_key."=".$this->{static::$primary_key};
+        echo '<br>'.$sql.'<br>';
         $database->query($sql);
         return ($database->affected_rows()==1) ? true : false;
     }

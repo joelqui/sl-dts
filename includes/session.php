@@ -1,6 +1,9 @@
 <?php
 // A class to help work with Sessoins
 // In our case, primarily to manage logging users in and ouy
+require_once('database.php');
+require_once('user.php');
+
 
 class Session {
 
@@ -24,14 +27,16 @@ class Session {
 
     public function login($user) {
         if($user) {
-            
+            $user_object = User::find_by_id($user);
             $this->user_id = $_SESSION['user_id'] = $user;
+            $_SESSION['dept_id'] = $user_object->dept_id;
             $this->logged_in = true;
         }
     }
 
     public function logout() {
         unset($_SESSION['user_id']);
+        unset($_SESSION['dept_id']);      
         unset($this->user_id);
         $this->logged_in = false;
     }

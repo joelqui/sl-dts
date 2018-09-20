@@ -26,7 +26,8 @@ class Document extends DatabaseObject {
     public static function daily_count() {
         global $database;
         $sql = "SELECT COUNT(*) AS total_found FROM ";
-        $sql .= static::$table_name." WHERE date_started = CURDATE() ";
+        $sql .= static::$table_name." WHERE date_started = '".date('Y-m-d')."'";
+        echo $sql;
         $result_set = $database->query($sql);
 
         return $result_set->fetch_assoc()['total_found'];
@@ -39,6 +40,7 @@ class Document extends DatabaseObject {
         //hardcoded left padding if number < $str_length
         $str = substr("000{$num}", -$str_length);
         $this->doc_trackingnum = date('ymd').$str;
+        echo '<br>'.$this->doc_trackingnum.'<br>';
     }
 
     public function generate_code() {
@@ -55,10 +57,106 @@ class Document extends DatabaseObject {
         return strtoupper($acronym);
     }
 
+    public function add_document(){
+        $this->doc_status = 1;
+        $this->generate_trackingnum();
+        $this->generate_code();
+        $this->date_started=date('Y-m-d');
+        $this->create();
 
+        $new_doc_hist = new DocumentHistory;
+        $new_doc_hist->doc_id = $this->doc_id;
+        $new_doc_hist->user_id = $_SESSION['user_id'];
+        $new_doc_hist->dept_id = $_SESSION['dept_id'];
+        $new_doc_hist->dochist_type = 1;    
+        $new_doc_hist->create();
+    }
 
+    private function change_is_last(){
+        //updates the last document history entry of the docuemnt
+        $last_doc_hist = DocumentHistory::find_by_id(DocumentHistory::find_last($this->doc_id));
+        //var_dump($last_doc_hist);
+        $last_doc_hist->is_last = false;
+        $last_doc_hist->update();
+    }
+
+    public function receive() {
+        $this->change_is_last();
+        $this->doc_status = 2;
+        $this->update();
+
+        $new_doc_hist = new DocumentHistory;
+        $new_doc_hist->doc_id = $this->doc_id;
+        $new_doc_hist->user_id = $_SESSION['user_id'];
+        $new_doc_hist->dept_id = $_SESSION['dept_id'];
+        $new_doc_hist->dochist_type = 1;    
+        $new_doc_hist->create();
+    }
+
+    public function forward($dept) {
+        $this->change_is_last();
+        $this->doc_status = 2;
+        $this->update();
+
+        $new_doc_hist = new DocumentHistory;
+        $new_doc_hist->doc_id = $this->doc_id;
+        $new_doc_hist->user_id = $_SESSION['user_id'];
+        $new_doc_hist->dept_id = $dept;
+        $new_doc_hist->dochist_type = 2;
+        $new_doc_hist->create();
+    }
+
+    public function add_remarks($remarks) {
+        $new_doc_hist = new DocumentHistory;
+        $new_doc_hist->doc_id = $this->doc_id;
+        $new_doc_hist->user_id = $_SESSION['user_id'];
+        $new_doc_hist->dept_id = $_SESSION['dept_id'];
+        $new_doc_hist->dochist_remarks=strtoupper($remarks);
+        $new_doc_hist->dochist_type = 3;
+        $new_doc_hist->is_last = false;
+        $new_doc_hist->create();
+    }
+
+    public function cancel_forward() {
+        $this->change_is_last();
+        $this->doc_status = 2;
+        $this->update();
+
+        $new_doc_hist = new DocumentHistory;
+        $new_doc_hist->doc_id = $this->doc_id;
+        $new_doc_hist->user_id = $_SESSION['user_id'];
+        $new_doc_hist->dept_id = $_SESSION['dept_id'];
+        $new_doc_hist->dochist_type = 4;
+        $new_doc_hist->create();
+    }
+
+    public function mark_completed() {
+        $this->change_is_last();
+        $this->doc_status = 4;
+        $this->update();
+
+        $new_doc_hist = new DocumentHistory;
+        $new_doc_hist->doc_id = $this->doc_id;
+        $new_doc_hist->user_id = $_SESSION['user_id'];
+        $new_doc_hist->dept_id = $_SESSION['dept_id'];
+        $new_doc_hist->dochist_type = 5;
+        $new_doc_hist->is_last = false;
+        $new_doc_hist->create();
+    }
     
+    public function mark_cancelled() {
+        $this->change_is_last();
+        $this->doc_status = 3;
+        $this->update();
 
+        $new_doc_hist = new DocumentHistory;
+        $new_doc_hist->doc_id = $this->doc_id;
+        $new_doc_hist->user_id = $_SESSION['user_id'];
+        $new_doc_hist->dept_id = $_SESSION['dept_id'];
+        $new_doc_hist->dochist_type = 6;
+        $new_doc_hist->is_last = false;
+        $new_doc_hist->create();
+    }
 
     
 

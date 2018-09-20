@@ -34,6 +34,21 @@ Track Document
     User.
 	create.edit.delete.resetpassword
 
+SELECT documents.doc_id, CONCAT(documents.doc_trackingnum,'-',documents.doc_type,'-',documents.doc_code) 
+FROM documents 
+INNER JOIN documents_history ON documents.doc_id = documents_history.doc_id 
+WHERE documents_history.is_last=true 
+      AND documents_history.user_id=1 
+      AND documents_history.dochist_type =1
+
+"SELECT date_of_birth, sex, civil_status, tin, philhealth_num, gsis_num, regular.rpsu_num, regular.step_increment, 
+regular.original_appointment, regular.last_promo_date, regular.school_id, position.position_code, plantilla_station.plantilla_station_code
+FROM personnel
+INNER JOIN regular ON personnel.personnel_id = regular.personnel_id
+INNER JOIN position ON position.position_id = regular.position_id
+INNER JOIN plantilla_station ON regular.plantilla_station_id = plantilla_station.plantilla_station_id
+WHERE personnel.personnel_id=$esearch");
+
 
 
 
