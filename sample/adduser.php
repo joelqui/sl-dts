@@ -1,7 +1,7 @@
 <?php
 require_once("../includes/initialize.php");
 
-//edit dept_if 
+/*
 $user = User::find_by_id(1);
 $user->dept_id=11;
 $user->update();
@@ -23,22 +23,22 @@ $user->update();
 
 //echo $user->usertype;
 //$user->delete();
-/*
+
 $users = User::find_all();
 
 foreach($users as $user) {
 echo "User: ".$user->username."<br />";
 echo "Name: ".$user->full_name()."<br /><br />";
-}
+}*/
 
 $personnel = new User();
-$personnel->username = "h";
-$personnel->password = "h";
-$personnel->first_name = "h";
-$personnel->last_name = "h";
-$personnel->usertype = 7;
-$personnel->dept_id = 7;
-$personnel->personnel_id = 7;
-$personnel->create();
-*/
+$personnel->username = "cpeguana";
+$personnel->password = "toyabiks";
+$personnel->first_name = "chrislee phil";
+$personnel->last_name = "eguana";
+$personnel->usertype = 2;
+$personnel->dept_id = 2;
+$personnel->personnel_id = 1;
+$personnel->add();
+
 ?>

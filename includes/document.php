@@ -47,7 +47,7 @@ class Document extends DatabaseObject {
         $this->doc_code = static::generate_acronym($this->doc_owner).'-'.static::generate_acronym($this->doc_name);
     }
 
-    private static function generate_acronym($string) {
+    public static function generate_acronym($string) {
         $words = explode(" ",$string);
         $acronym = "";
 
@@ -156,6 +156,26 @@ class Document extends DatabaseObject {
         $new_doc_hist->dochist_type = 6;
         $new_doc_hist->is_last = false;
         $new_doc_hist->create();
+    }
+
+    public function get_dochist() {
+        global $database;
+
+        $sql = "SELECT documents_history.timestamp, CONCAT(documents_history.dochist_type,' ',departments.dept_abbreviation,";
+        $sql .= "' BY ',users.user_abbreviation) AS dochist_specs, documents_history.dochist_remarks";
+        $sql .= " FROM documents_history";
+        $sql .= " INNER JOIN departments ON documents_history.dept_id = departments.dept_id";
+        $sql .= " INNER JOIN users ON documents_history.user_id = users.user_id";
+        $sql .= " WHERE documents_history.doc_id = ".$this->doc_id;
+        $sql .= " ORDER BY documents_history.timestamp ASC";
+
+        echo $sql;
+        $result_set = $database->query($sql);
+        $object_array = array();
+        while ($row = $database->fetch_array($result_set)){
+            $object_array[] = $row;
+        }
+        return $object_array;
     }
 
     
