@@ -34,7 +34,7 @@ class Pagination {
     }
 
     public function has_next_page() {
-        return $this->next_page() <= $this-?total_pages() ? true : false;
+        return $this->next_page() <= $this->total_pages() ? true : false;
     }
 
 
