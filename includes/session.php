@@ -30,13 +30,15 @@ class Session {
             $user_object = User::find_by_id($user);
             $this->user_id = $_SESSION['user_id'] = $user;
             $_SESSION['dept_id'] = $user_object->dept_id;
+            $_SESSION['usertype'] = $user_object->usertype;
             $this->logged_in = true;
         }
     }
 
     public function logout() {
         unset($_SESSION['user_id']);
-        unset($_SESSION['dept_id']);      
+        unset($_SESSION['dept_id']); 
+        unset($_SESSION['usertype']);      
         unset($this->user_id);
         $this->logged_in = false;
     }
