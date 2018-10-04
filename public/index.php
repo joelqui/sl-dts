@@ -1,8 +1,8 @@
 <?php
 require_once("../includes/initialize.php");
 
-$session->logout();
-$session->login(2);
+
+
 echo $_SESSION['user_id'];
 
 if( $_SESSION['usertype'] == 'admin' ) {
@@ -10,19 +10,19 @@ if( $_SESSION['usertype'] == 'admin' ) {
 }
 
 else if ( $_SESSION['usertype'] == 'mgmt' ){
-    redirect_to('mgmt/doc_mgmt.html');
+    redirect_to('mgmt/doc_mgmt.php');
 }
 
 else if ( $_SESSION['usertype'] == 'user' ){
-    redirect_to('docs_on_hand.html');
+    redirect_to('docs_on_hand.php');
 }
 
 else if ( $_SESSION['usertype'] == 'guest' ){
-    redirect_to('track_doc.html');
+    redirect_to('track_doc.php');
 }
 
 else {
-    redirect_to('login.html');
+    redirect_to('login.php');
 }
 
 ?>

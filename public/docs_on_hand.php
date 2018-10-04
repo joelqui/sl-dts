@@ -1,3 +1,5 @@
+<?php require_once("../includes/initialize.php"); ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -34,7 +36,9 @@
                         <li class="nav-item" role="presentation"><a class="nav-link active" href="#" style="color:rgb(255,255,255);">Analytics</a></li>
                     </ul>
                     <ul class="nav navbar-nav">
-                        <li class="dropdown"><a class="dropdown-toggle nav-link text-white dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#" id="usernameHolder" style="color:rgb(255,255,255);"><i class="fa fa-user"></i>&nbsp;guest</a>
+                        <li class="dropdown"><a class="dropdown-toggle nav-link text-white dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#" data-id="<?php echo $_SESSION['user_id']?>" data-utype="<?php echo $_SESSION['usertype']?>" data-dept="<?php echo $_SESSION['dept_id']?>" id="usernameHolder" style="color:rgb(255,255,255);"><i class="fa fa-user"></i>&nbsp; 
+                        <?php echo $_SESSION['username']; ?> 
+                        </a>
                             <div class="dropdown-menu dropdown-menu-right"
                                 role="menu"><a class="dropdown-item" role="presentation" href="#" id="changePassword">Change Password</a><a class="dropdown-item" role="presentation" href="logout.php">Logout</a></div>
                         </li>
@@ -99,6 +103,8 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+
+    <script src="../j_js/menu-visibility.js"></script>
 </body>
 
 </html>

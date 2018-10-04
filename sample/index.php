@@ -1,6 +1,9 @@
 <?php
 require_once("../includes/initialize.php");
 
+echo $_SESSION['username'];
+
+/*
 $page = 4;
 
 $per_page = 3;
@@ -19,5 +22,5 @@ $sql .= "OFFSET {$pagination->offset()}";
 $dhists = DocumentHistory::find_by_sql($sql);
 
 var_dump($dhists);
-
+*/
 ?>

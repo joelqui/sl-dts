@@ -31,6 +31,7 @@ class Session {
             $this->user_id = $_SESSION['user_id'] = $user;
             $_SESSION['dept_id'] = $user_object->dept_id;
             $_SESSION['usertype'] = $user_object->usertype;
+            $_SESSION['username'] = $user_object->username;
             $this->logged_in = true;
         }
     }
@@ -39,6 +40,7 @@ class Session {
         unset($_SESSION['user_id']);
         unset($_SESSION['dept_id']); 
         unset($_SESSION['usertype']);      
+        unset($_SESSION['username']);
         unset($this->user_id);
         $this->logged_in = false;
     }

@@ -1,3 +1,27 @@
+<?php
+require_once("../includes/initialize.php");
+
+if(isset($_SESSION['usertype'])) {
+
+    if ($_SESSION['usertype'] == 'admin' ) {
+        redirect_to('mastermind/user_mgmt.php');
+    }
+    
+    else if ( $_SESSION['usertype'] == 'mgmt' ){
+        redirect_to('mgmt/doc_mgmt.html');
+    }
+    
+    else if ( $_SESSION['usertype'] == 'user' ){
+        redirect_to('docs_on_hand.html');
+    }
+    
+    else if ( $_SESSION['usertype'] == 'guest' ){
+        redirect_to('track_doc.html');
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -20,7 +44,7 @@
     <div style="font-size:10px;width:272px;padding:150px 0px;">
         <div class="container" style="padding:0px;width:25px;margin:0px;">
             <div class="row no-gutters" style="width:220px;">
-                <form style="margin:0px 0px;padding:0px 0px;">
+                <form id="loginForm" style="margin:0px 0px;padding:0px 0px;">
                     <div class="form-group">
                         <div class="form-row" style="padding:0px;margin:7px;">
                             <div class="col" style="width:216px;">
@@ -38,7 +62,7 @@
                             <div class="col"><input class="form-control" type="password" placeholder="Password" id="password" style="height:40px;"></div>
                         </div>
                         <div class="form-row" style="padding:0px;margin:7px;">
-                            <div class="col"><button class="btn btn-danger btn-sm" type="button" id="login" style="height:40px;font-size:15px;width:250px;padding:0px 0px;">Login</button></div>
+                            <div class="col"><button class="btn btn-danger btn-sm" type="submit" id="login" style="height:40px;font-size:15px;width:250px;padding:0px 0px;">Login</button></div>
                         </div>
                     </div>
                 </form>
@@ -54,6 +78,8 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+
+    <script src="../includes/dts.js"></script>
 </body>
 
 </html>
