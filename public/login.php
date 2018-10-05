@@ -34,7 +34,7 @@ if(isset($_SESSION['usertype'])) {
     <link rel="stylesheet" href="assets/css/Data-Table.css">
     <link rel="stylesheet" href="assets/css/Data-Table2.css">
     <link rel="stylesheet" href="assets/css/Footer-Basic.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
@@ -76,8 +76,8 @@ if(isset($_SESSION['usertype'])) {
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+    <script src="assets/js/jquery.dataTables.min.js"></script>
+    <script src="assets/js/dataTables.bootstrap.min.js"></script>
 
     <script src="../includes/dts.js"></script>
 </body>

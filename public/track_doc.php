@@ -1,3 +1,5 @@
+<?php require_once("../includes/initialize.php"); ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -10,7 +12,7 @@
     <link rel="stylesheet" href="assets/css/Data-Table.css">
     <link rel="stylesheet" href="assets/css/Data-Table2.css">
     <link rel="stylesheet" href="assets/css/Footer-Basic.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
@@ -34,9 +36,11 @@
                         <li class="nav-item" role="presentation"><a class="nav-link active" href="#" style="color:rgb(255,255,255);">Analytics</a></li>
                     </ul>
                     <ul class="nav navbar-nav">
-                        <li class="dropdown"><a class="dropdown-toggle nav-link text-white dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#" id="usernameHolder" style="color:rgb(255,255,255);"><i class="fa fa-user"></i>&nbsp;guest</a>
+                        <li class="dropdown"><a class="dropdown-toggle nav-link text-white dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#" data-id="<?php echo $_SESSION['user_id']?>" data-utype="<?php echo $_SESSION['usertype']?>" data-dept="<?php echo $_SESSION['dept_id']?>" id="usernameHolder" style="color:rgb(255,255,255);"><i class="fa fa-user"></i>&nbsp; 
+                        <?php echo $_SESSION['username']; ?> 
+                        </a>
                             <div class="dropdown-menu dropdown-menu-right"
-                                role="menu"><a class="dropdown-item" role="presentation" href="#" id="changePassword">Change Password</a><a class="dropdown-item" role="presentation" href="logout.php">Logout</a></div>
+                                role="menu"><a class="dropdown-item" role="presentation" href="#" id="changePassword" data-target="#editPassword" data-toggle="modal">Change Password</a><a class="dropdown-item" role="presentation" href="logout.php">Logout</a></div>
                         </li>
                     </ul>
             </div>
@@ -158,10 +162,31 @@
             <p class="copyright" style="color:rgb(255,255,255);">jkiqui-dts-v1 © 2018</p>
         </footer>
     </div>
+
+    <div class="modal fade" role="dialog" tabindex="-1" id="editPassword" style="padding:0px 0px;margin:200px 0px;">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color:rgb(255,0,0);width:298px;margin:0px 0px;height:30px;padding:2px 2px;">
+                    <h5 class="modal-title" style="color:rgb(0,255,255);margin:-2px 4px;">Change Password</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                <div class="modal-body" style="width:273px;">
+                    <div class="row">
+                        <div class="col"><small style="color:rgb(255,0,0);">Password was updated successfully.</small></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-auto" style="margin:0px 0px;"><label class="col-form-label" style="font-size:12px;">Enter Password:</label><input type="password" id="mPassword1" style="font-size:12px;margin:0px 21px;"></div>
+                        <div class="col-auto" style="margin:0px 0px;"><label class="col-form-label" style="font-size:12px;">Reenter Password:&nbsp;</label><input type="password" id="mPassword2" style="font-size:12px;margin:5px;"></div>
+                    </div>
+                </div>
+                <div class="modal-footer" style="height:35px;"><button class="btn btn-light btn-sm" type="button" id="mPasswordClose" data-dismiss="modal" style="height:23px;width:50px;margin:0px 0px;padding:0px 0px;">Close</button><button class="btn btn-primary btn-sm" type="button" id="mPasswordSave"
+                        style="height:23px;padding:0px 0px;margin:0px 10px;width:45px;font-size:12px;">Save</button></div>
+            </div>
+        </div>
+    </div>
+
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+    <script src="assets/js/jquery.dataTables.min.js"></script>
+    <script src="assets/js/dataTables.bootstrap.min.js"></script>
 </body>
 
 </html>
