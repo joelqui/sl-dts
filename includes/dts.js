@@ -4,7 +4,7 @@ $(document).ready(function () {
 //script for user menu option visibility
     
     //hide default error message
-    $('#errorContainer').hide();
+    //$('#errorContainer').hide();
   
     $('#loginForm').submit(function(event) {
         event.preventDefault();

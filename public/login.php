@@ -8,15 +8,15 @@ if(isset($_SESSION['usertype'])) {
     }
     
     else if ( $_SESSION['usertype'] == 'mgmt' ){
-        redirect_to('mgmt/doc_mgmt.html');
+        redirect_to('mgmt/doc_mgmt.php');
     }
     
     else if ( $_SESSION['usertype'] == 'user' ){
-        redirect_to('docs_on_hand.html');
+        redirect_to('docs_on_hand.php');
     }
     
     else if ( $_SESSION['usertype'] == 'guest' ){
-        redirect_to('track_doc.html');
+        redirect_to('track_doc.php');
     }
 }
 
@@ -53,7 +53,7 @@ if(isset($_SESSION['usertype'])) {
                             </div>
                         </div>
                         <div class="form-row" style="padding:0px;margin:7px;">
-                            <div class="col" style="width:216px;"><small id="errorContainer" style="font-size:14px;width:265px;color:rgb(255,33,18);">Incorrect username or password</small></div>
+                            <div class="col" style="width:216px;"><small id="errorContainer" style="font-size:14px;width:265px;color:rgb(255,33,18); display:none">Incorrect username or password</small></div>
                         </div>
                         <div class="form-row" style="padding:0px;margin:7px;">
                             <div class="col"><input class="form-control" type="text" placeholder="Username" id="username" style="width:250px;height:40px;font-size:15px;"></div>
