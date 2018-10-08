@@ -1,6 +1,8 @@
 $(document).ready(function () {
 
     loadDeptData(1);
+    loadHeads();
+
     
 
     $("#tableArea").on( "click", ".page-item",function() {
@@ -19,10 +21,22 @@ function loadDeptData(pagenum){
         "text");
 }
 
+
+
 function successFn(result){
     $('#tableArea').html(result);    
 }
 
+
+
+function loadHeads(){
+    console.log('YEAH');
+    $.get("../../j_php/retrieve_heads.php", function(data){
+            $('optgroup').html(data);
+            }
+        );
+    
+    }   
 
 
 

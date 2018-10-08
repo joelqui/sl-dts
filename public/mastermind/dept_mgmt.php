@@ -132,7 +132,7 @@ if(!isset($_SESSION['usertype'])) {
                         <div class="col-auto" style="margin:0px 0px;"><label class="col-form-label" style="font-size:12px;">Department Head:</label></div>
                     </div>
                     <div class="row">
-                        <div class="col" style="margin:0px 0px;"><select id="deptHeadAdd" style="width:236px;font-size:12px;"><optgroup label="Unit/Section Heads"><option value="12" selected="">ZEDRICK MALBAS</option><option value="13">ELSIE JANE MANTILLA</option><option value="14">This is item 3</option></optgroup></select></div>
+                        <div class="col" style="margin:0px 0px;"><select id="deptHeadAdd" style="width:236px;font-size:12px;"><optgroup label="Unit/Section Heads"></optgroup></select></div>
                     </div>
                 </div>
                 <div class="modal-footer" style="height:35px;"><button class="btn btn-light btn-sm" type="button" id="addClose" data-dismiss="modal" style="height:23px;width:50px;margin:0px 0px;padding:0px 0px;">Close</button><button class="btn btn-primary btn-sm" type="button" style="height:23px;padding:0px 0px;margin:0px 10px;width:45px;font-size:12px;">Save</button></div>
