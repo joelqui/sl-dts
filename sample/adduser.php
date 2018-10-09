@@ -32,10 +32,10 @@ echo "Name: ".$user->full_name()."<br /><br />";
 }*/
 
 $personnel = new User();
-$personnel->username = "cpeguana";
-$personnel->password = "toyabiks";
-$personnel->first_name = "chrislee phil";
-$personnel->last_name = "eguana";
+$personnel->username = "qtialim";
+$personnel->password = "toyadwadiks";
+$personnel->first_name = "queennie";
+$personnel->last_name = "tia";
 $personnel->usertype = 2;
 $personnel->dept_id = 2;
 $personnel->personnel_id = 1;

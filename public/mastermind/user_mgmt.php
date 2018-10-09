@@ -79,50 +79,12 @@ if(!isset($_SESSION['usertype'])) {
                 <div class="col-auto" style="width:78px;"><button class="btn btn-success btn-sm" type="button" id="addUser" style="height:23px;padding:-4px;font-size:10px;width:67px;" data-target="#editModal" data-toggle="modal">Add User</button></div>
                 <div class="col"><input type="text" placeholder="Search Users" id="searchUser" style="width:150px;height:25px;font-size:12px;"></div>
             </div>
-            <div class="row no-gutters">
-                <div class="col-auto" style="margin:19px;">
-                    <div class="table-responsive" style="font-size:12px;background-color:#ffffff;margin:0px 10px;padding:0px 0px;width:1026px;">
-                        <table class="table table-striped table-bordered table-sm">
-                            <thead>
-                                <tr class="justify-content-start">
-                                    <th style="width:394px;">&nbsp;Name</th>
-                                    <th style="width:284px;"><strong>Username</strong><br></th>
-                                    <th>Department</th>
-                                    <th style="width:213px;">Process</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr style="height:30px;">
-                                    <td class="align-middle">JOEL QUILANTANG</td>
-                                    <td class="align-middle">joel.quilantang@deped.gov.ph</td>
-                                    <td class="align-middle">OSDS-ICT</td>
-                                    <td style="height:18px;"><button class="btn btn-success active btn-sm" type="button" style="height:15px;padding:0;font-size:10px;margin:0px 2px;width:90px;">Reset Password</button><button class="btn btn-primary active btn-sm" type="button"
-                                            id="editButton" style="height:15px;padding:0;font-size:10px;margin:0px 2px;width:35px;" data-target="#editModal" data-toggle="modal">Edit</button><button class="btn btn-danger active btn-sm" type="button" style="height:15px;padding:0;font-size:10px;margin:0px 2px;width:40px;">Delete</button></td>
-                                </tr>
-                                <tr style="height:30px;">
-                                    <td class="align-middle">DEC ANTONY EMMANUEL CARBONILLA</td>
-                                    <td class="align-middle">dennis.carbonilla@deped.gov.ph</td>
-                                    <td class="align-middle" style="width:227px;">SGOD-PnR</td>
-                                    <td style="height:18px;"><button class="btn btn-success active btn-sm" type="button" style="height:15px;padding:0;font-size:10px;margin:0px 2px;width:90px;">Reset Password</button><button class="btn btn-primary active btn-sm" type="button"
-                                            style="height:15px;padding:0;font-size:10px;margin:0px 2px;width:35px;">Edit</button><button class="btn btn-danger active btn-sm" type="button" style="height:15px;padding:0;font-size:10px;margin:0px 2px;width:40px;">Delete</button></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="col" style="width:1071px;height:27px;padding:0px 20px;">
-                    <nav style="width:940px;height:33px;">
-                        <ul class="pagination">
-                            <li class="page-item"><a class="page-link" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                            <li class="page-item"><a class="page-link">1</a></li>
-                            <li class="page-item"><a class="page-link">2</a></li>
-                            <li class="page-item"><a class="page-link">3</a></li>
-                            <li class="page-item"><a class="page-link">4</a></li>
-                            <li class="page-item"><a class="page-link">5</a></li>
-                            <li class="page-item"><a class="page-link" aria-label="Next"><span aria-hidden="true">»</span></a></li>
-                        </ul>
-                    </nav>
-                </div>
+            <div id="tableArea" class="row no-gutters">
+                
+                        
+           
+                              
+                        
             </div>
         </div>
     </div>
@@ -188,6 +150,7 @@ if(!isset($_SESSION['usertype'])) {
     <script src="../assets/js/dataTables.bootstrap.min.js"></script>
 
     <script src="../../j_js/menu-visibility.js"></script>
+    <script src="../../j_js/user.js"></script>
 </body>
 
 </html>

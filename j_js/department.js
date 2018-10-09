@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    var selected;
+    var selected,selectedCode;
     loadDeptData(1);
     loadHeads();
     
@@ -10,13 +10,29 @@ $(document).ready(function () {
       });
     
     $("#editSave").click(function() {
-        console.log('id'+selected);
+        updateDept(selected);
       });
     
     $("#tableArea").on( "click", ".btn-primary",function() {
         selected=$(this).parent().parent().data('id');
         loadSelectedDept($(this).parent().parent().data('id'));
+      });
+
+    $("body").on( "click", ".btn-success",function() {
+        $("select").val("");
+      });
+    
+    //delete script
+    $("#tableArea").on( "click", ".btn-danger",function() {
+        selected=$(this).parent().parent().data('id');
         
+        selectedCode=($(this).parent().prev().prev().text());
+
+        if (confirm("Are you sure you want to delete "+selectedCode+"?")) {
+            deleteDept(selected);
+        } else {
+            //txt = "You pressed Cancel!";
+        }
       });
 
     $("#tableArea").on( "click", ".page-item",function() {
@@ -72,6 +88,25 @@ function saveDept(){
    
     } 
 
+function updateDept(deptid){
+
+        $.get("../../j_php/department_update.php",{
+            deptid: deptid,
+            depthead: $("#deptHeadEdit").val(),
+            }, 
+            function(data){
+                if(data==1){
+                    alert('Department was successfully updated');
+                    location.reload();
+                    }
+                else
+                    alert('Something went wrong!');
+                
+                }
+            );
+       
+        } 
+
 function loadSelectedDept(deptid){
     $.get("../../j_php/department_retrieve.php",{
         dept_id: deptid,
@@ -80,14 +115,27 @@ function loadSelectedDept(deptid){
             var r = JSON.parse(data);
             $("#deptLabel").text(r.dcode);
             $("#deptHeadEdit").val(r.dhead);
-            console.log(r.dcode);
-        
-            
-            //console.log(data['dhead']);
             }
         );
-   
-    } 
+    }
+
+function deleteDept(deptid){
+    $.get("../../j_php/department_delete.php",{
+        dept_id: deptid,
+        }, 
+         function(data){
+            if(data=1) {
+                alert("Deparment was successfully deleted!");
+                location.reload();
+            }
+            else {
+                alert("Something went wrong!");
+                location.reload();
+            }   
+        }
+    );
+}
+
 
 
 

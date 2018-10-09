@@ -104,7 +104,7 @@ class DatabaseObject {
         $sql = "UPDATE ".static::$table_name." SET ";
         $sql .= join(", ", $attribute_pairs);
         $sql .= " WHERE ".static::$primary_key."=".$this->{static::$primary_key};
-        echo '<br>'.$sql.'<br>';
+        //echo '<br>'.$sql.'<br>';
         $database->query($sql);
         return ($database->affected_rows()==1) ? true : false;
     }
@@ -118,7 +118,7 @@ class DatabaseObject {
         $sql = "DELETE FROM ".static::$table_name." ";
         $sql .= "WHERE ".static::$primary_key."=". $database->escape_value($this->{static::$primary_key});
         $sql .= " LIMIT 1";
-        echo $sql;
+        //echo $sql;
         $database->query($sql);
         return ($database->affected_rows()) ? true : false;
     }
