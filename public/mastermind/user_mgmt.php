@@ -115,10 +115,10 @@ if(!isset($_SESSION['usertype'])) {
                         <div class="col-auto" style="margin:0px 0px;padding:0px 5px;"><label class="col-form-label" style="font-size:12px;width:98px;">First Name:</label><input type="text" id="firstname" style="font-size:12px;width:160px;margin:0px 3px;"></div>
                     </div>
                     <div class="row">
-                        <div class="col-auto" style="margin:0px 0px;padding:0px 5px;font-size:12px;"><label class="col-form-label" style="font-size:12px;width:98px;">Department:</label><select id="dept" style="height:24px;margin:0px 3px;width:160px;"><optgroup label="What kind of sex do you want?"><option value="12" selected="">Anal</option><option value="13">Vaginal</option><option value="14">Oral</option></optgroup></select></div>
+                        <div class="col-auto" style="margin:0px 0px;padding:0px 5px;font-size:12px;"><label class="col-form-label" style="font-size:12px;width:98px;">Department:</label><select id="dept" style="height:24px;margin:0px 3px;width:160px;"><optgroup label="Units/Departments"></optgroup></select></div>
                     </div>
                     <div class="row">
-                        <div class="col-auto" style="margin:0px 0px;padding:0px 5px;font-size:12px;"><label class="col-form-label" style="font-size:12px;width:98px;">Usertype:</label><select id="usertype" style="height:24px;margin:0px 3px;width:160px;"><optgroup label="This is a group"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></div>
+                        <div class="col-auto" style="margin:0px 0px;padding:0px 5px;font-size:12px;"><label class="col-form-label" style="font-size:12px;width:98px;">Usertype:</label><select id="usertype" style="height:24px;margin:0px 3px;width:160px;"><optgroup label="Usertypes"><option value="1">Mastermind</option><option value="2">Management</option><option value="3">User</option><option value="4">Guest</option></optgroup></select></div>
                     </div>
                 </div>
                 <div class="modal-footer" style="height:35px;"><button class="btn btn-light btn-sm" type="button" id="close" data-dismiss="modal" style="height:23px;width:50px;margin:0px 0px;padding:0px 0px;">Close</button><button class="btn btn-primary btn-sm" type="button" id="saveUser" style="height:23px;padding:0px 0px;margin:0px 10px;width:45px;font-size:12px;">Save</button></div>

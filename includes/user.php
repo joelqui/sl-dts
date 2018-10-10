@@ -101,8 +101,7 @@ class User extends DatabaseObject {
         $this->user_abbreviation = Document::generate_acronym($this->first_name).' '.strtoupper($this->last_name);
         $this->first_name = strtoupper($this->first_name);
         $this->last_name = strtoupper($this->last_name);
-        echo $this->user_abbreviation;
-        $this->create();
+        echo $this->create();
 
     }
 

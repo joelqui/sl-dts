@@ -9,7 +9,7 @@ $total_count = User::count_all();
 
 $pagination = new Pagination($page, $per_page, $total_count);
 
-$sql = "SELECT CONCAT(last_name,', ',first_name) AS last_name, username, departments.dept_abbreviation AS dept_id ";
+$sql = "SELECT user_id, CONCAT(last_name,', ',first_name) AS last_name, username, departments.dept_abbreviation AS dept_id ";
 $sql .= "FROM users ";
 $sql .= "LEFT JOIN departments ON users.dept_id = departments.dept_id ";
 $sql .= "ORDER BY last_name ASC ";
@@ -32,7 +32,8 @@ if(empty($a1)) {
 else {
     foreach($a1 as $user_data){
 
-        $htmlContent2 .= '<tr style="height:30px;"><td class="align-middle">'.$user_data->last_name;
+        $htmlContent2 .= '<tr data-id="'.$user_data->user_id; 
+        $htmlContent2 .= '" style="height:30px;"><td class="align-middle">'.$user_data->last_name;
         $htmlContent2 .= '</td><td class="align-middle">'.$user_data->username;
         $htmlContent2 .= '</td><td class="align-middle">'.$user_data->dept_id;
         $htmlContent2 .= '</td><td style="height:18px;"><button class="btn btn-success active btn-sm" type="button"';
