@@ -4,9 +4,9 @@ require_once("../includes/initialize.php");
 
 global $database;
 
-$sql = "SELECT dept_id,dept_abbreviation ";
-$sql .= "FROM departments ";
-$sql .= "ORDER BY dept_abbreviation ASC";
+$sql = "SELECT district_id,district_name ";
+$sql .= "FROM districts ";
+$sql .= "ORDER BY district_name ASC";
 
 //echo $sql;
 $htmlContent = "";
@@ -21,8 +21,8 @@ if(empty($object_array)) {
     echo 'No Shit!';
 }
 else {
-    foreach($object_array as $dept) {
-        $htmlContent .= '<option value="'.$dept['dept_id'].'">'.$dept['dept_abbreviation'].'</option>';
+    foreach($object_array as $dist) {
+        $htmlContent .= '<option value="'.$dist['district_id'].'">'.$dist['district_name'].'</option>';
     }
  
 }

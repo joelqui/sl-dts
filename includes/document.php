@@ -27,7 +27,7 @@ class Document extends DatabaseObject {
         global $database;
         $sql = "SELECT COUNT(*) AS total_found FROM ";
         $sql .= static::$table_name." WHERE date_started = '".date('Y-m-d')."'";
-        echo $sql;
+        //echo $sql;
         $result_set = $database->query($sql);
 
         return $result_set->fetch_assoc()['total_found'];
@@ -40,7 +40,7 @@ class Document extends DatabaseObject {
         //hardcoded left padding if number < $str_length
         $str = substr("000{$num}", -$str_length);
         $this->doc_trackingnum = date('ymd').$str;
-        echo '<br>'.$this->doc_trackingnum.'<br>';
+        //echo '<br>'.$this->doc_trackingnum.'<br>';
     }
 
     public function generate_code() {
@@ -62,7 +62,7 @@ class Document extends DatabaseObject {
         $this->generate_trackingnum();
         $this->generate_code();
         $this->date_started=date('Y-m-d');
-        $this->create();
+        
 
         $new_doc_hist = new DocumentHistory;
         $new_doc_hist->doc_id = $this->doc_id;
@@ -70,6 +70,8 @@ class Document extends DatabaseObject {
         $new_doc_hist->dept_id = $_SESSION['dept_id'];
         $new_doc_hist->dochist_type = 1;    
         $new_doc_hist->create();
+
+        return $this->create();
     }
 
     private function change_is_last(){
@@ -169,7 +171,7 @@ class Document extends DatabaseObject {
         $sql .= " WHERE documents_history.doc_id = ".$this->doc_id;
         $sql .= " ORDER BY documents_history.timestamp ASC";
 
-        echo $sql;
+        //echo $sql;
         $result_set = $database->query($sql);
         $object_array = array();
         while ($row = $database->fetch_array($result_set)){
