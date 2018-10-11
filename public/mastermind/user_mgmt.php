@@ -93,12 +93,15 @@ if(!isset($_SESSION['usertype'])) {
             <p class="copyright" style="color:rgb(255,255,255);">jkiqui-dts-v1 © 2018</p>
         </footer>
     </div>
-    <div class="modal fade" role="dialog" tabindex="-1" id="editModal" style="padding:0px 0px;margin:100px 0px;height:356px;">
+    <div class="modal fade" role="dialog" tabindex="-1" id="editModal" style="padding:0px 0px;margin:100px 0px;height:375px;">
         <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content">
                 <div class="modal-header" style="background-color:rgb(255,0,0);width:298px;margin:0px 0px;height:30px;padding:2px 2px;">
                     <h5 class="modal-title" style="color:rgb(0,255,255);margin:-2px 4px;">Add/Edit User</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
                 <div class="modal-body" style="width:273px;">
+                <div class="row">
+                        <div class="col"><small style="color:rgb(255,0,0); "></small></div>
+                    </div>
                     <div class="row">
                         <div class="col-auto" style="margin:0px 0px;padding:0px 5px;"><label class="col-form-label" style="font-size:12px;width:98px;">Username:</label><input type="text" id="username" style="font-size:12px;width:160px;margin:0px 3px;"></div>
                     </div>

@@ -10,5 +10,5 @@ $user->last_name = strtoupper($_GET['lastname']);
 $user->dept_id = $_GET['dept_id'];
 $user->usertype = $_GET['usertype'];
 
-echo $user->update();
+echo $user->edit();
 ?>
