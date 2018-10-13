@@ -62,7 +62,7 @@ class Document extends DatabaseObject {
         $this->generate_trackingnum();
         $this->generate_code();
         $this->date_started=date('Y-m-d');
-        
+        $this->create();
 
         $new_doc_hist = new DocumentHistory;
         $new_doc_hist->doc_id = $this->doc_id;
@@ -71,7 +71,7 @@ class Document extends DatabaseObject {
         $new_doc_hist->dochist_type = 1;    
         $new_doc_hist->create();
 
-        return $this->create();
+        
     }
 
     private function change_is_last(){
@@ -98,14 +98,14 @@ class Document extends DatabaseObject {
     public function forward($dept) {
         $this->change_is_last();
         $this->doc_status = 2;
-        $this->update();
+        echo $this->update();
 
         $new_doc_hist = new DocumentHistory;
         $new_doc_hist->doc_id = $this->doc_id;
         $new_doc_hist->user_id = $_SESSION['user_id'];
         $new_doc_hist->dept_id = $dept;
         $new_doc_hist->dochist_type = 2;
-        $new_doc_hist->create();
+        echo $new_doc_hist->create();
     }
 
     public function add_remarks($remarks) {

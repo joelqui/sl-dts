@@ -71,12 +71,12 @@ if(!isset($_SESSION['usertype'])) {
                 <div class="col-auto" style="margin:19px;width:923px;">
                     <form style="width:925px;">
                         <h4 style="color:rgb(134,142,150);">You've successfully added a document.</h4>
-                        <h4 id="docTrackHolder" style="color:rgb(134,142,150);">Your document tracking number is&nbsp;</h4>
+                        <h4 id="docTrackHolder" style="color:rgb(134,142,150);">Your document tracking number is&nbsp;<?php echo $_GET['tracking']; ?></h4>
                     </form>
                 </div>
             </div>
             <div class="row" style="padding:0px;margin:7px;">
-                <div class="col"><button class="btn btn-primary btn-sm" type="button" id="printReceipt" style="height:23px;padding:-4px;font-size:10px;margin:10px;">Print</button><a href="add_document.html" class="btn btn-success btn-sm" style="height:23px;padding:-4px;font-size:10px;">Add another document</a></div>
+                <div class="col"><button class="btn btn-primary btn-sm" type="button" id="printReceipt" style="height:23px;padding:-4px;font-size:10px;margin:10px;">Print</button><a href="add_document.php" class="btn btn-success btn-sm" style="height:23px;padding:-4px;font-size:10px;">Add another document</a></div>
             </div>
         </div>
     </div>

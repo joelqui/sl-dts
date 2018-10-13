@@ -46,8 +46,8 @@ class User extends DatabaseObject {
         $sql .= "FROM documents ";
         $sql .= "INNER JOIN documents_history ON documents.doc_id = documents_history.doc_id ";
         $sql .= "WHERE documents_history.is_last=true ";
-      // $sql .= "AND documents_history.dept_id=".$_SESSION['dept_id'];
-        $sql .= "AND documents_history.dept_id=8";
+        $sql .= "AND documents_history.dept_id=".$_SESSION['dept_id'];
+        //$sql .= "AND documents_history.dept_id=8";
         $sql .= " AND documents_history.dochist_type=2";
 
       //  echo $sql;

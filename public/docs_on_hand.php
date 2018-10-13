@@ -70,27 +70,32 @@ if(!isset($_SESSION['usertype'])) {
                 <div class="col-3" style="margin:20px 0px;height:32px;"><select class="form-control-sm" id="viewSelect" style="font-size:12px;height:27px;"><optgroup label="View Options"><option value="12" selected="">View Requests Only</option><option value="13">View Submissions Only</option><option value="14">View For Processing Only</option></optgroup></select></div>
             </div>
             <div class="row" style="width:1100px;font-size:12px;height:504px;padding:0px 0px;margin:0px 0px;">
-                <div class="col-auto my-auto" style="margin:0px;width:260px;height:449px;padding:0px 0px;"><select multiple="" id="incomingList" style="height:460px;width:250px;"><optgroup label="***INCOMING"><option value="12" selected="">180809010-RQST-STACRUZNHS</option><option value="13">180809011-PRCSNG-SILAGOCS</option><option value="14">180809012-RQST-MCRHNCS</option><option value="">180809013-SBMSN-STBRNRD2</option><option value="">180809014-CMNCTN-SOGODCS</option><option value="">180809015-RQST-DOST</option><option value="">180809016-CMNCTN-LBGNCS</option><option value="">180809017-RQST-LGUMAASIN</option><option value="">180809018-RQST-SOGOD2</option></optgroup></select></div>
+                <div class="col-auto my-auto" style="margin:0px;width:260px;height:449px;padding:0px 0px;"><select multiple="" id="incomingList" style="height:460px;width:250px;"><optgroup label="***INCOMING">
+                
+                </optgroup></select></div>
                 <div
                     class="col-auto" style="margin:0px 0px;width:80px;height:300px;padding:0px 0px;">
-                    <div class="row" style="margin:140px 13px;">
+                    <div class="row" id="incomingButtons" style="margin:140px 13px;">
                         <div class="col"><button class="btn btn-success btn-sm" type="button" id="acceptIncoming" style="height:23px;padding:0px 0px;font-size:12px;margin:0px -8px;width:65px;">Accept</button><button class="btn btn-warning btn-lg" type="button" id="addIncomingRemarks"
                                 style="height:23px;padding:0px 0px;font-size:12px;background-color:rgb(225,33,33);margin:8px -8px;width:62px;" data-target="#remarksModal" data-toggle="modal">Remarks</button></div>
                     </div>
-            </div>
-            <div class="col-auto my-auto" style="margin:19px;width:260px;height:449px;"><select multiple="" id="onQueueList" style="height:460px;width:250px;"><optgroup label="***ON QUEUE"><option value="12" selected="">180809010-RQST-STACRUZNHS</option><option value="13">180809011-PRCSNG-SILAGOCS</option><option value="14">180809012-RQST-MCRHNCS</option><option value="">180809013-SBMSN-STBRNRD2</option><option value="">180809014-CMNCTN-SOGODCS</option><option value="">180809015-RQST-DOST</option><option value="">180809016-CMNCTN-LBGNCS</option><option value="">180809017-RQST-LGUMAASIN</option><option value="">180809018-RQST-SOGOD2</option></optgroup></select></div>
-            <div
-                class="col-auto" style="margin:0px 0px;width:80px;height:449px;padding:0px 0px;">
-                <div class="row" style="margin:140px 0px;">
+                    </div>
+                    <div class="col-auto my-auto" style="margin:19px;width:260px;height:449px;"><select multiple="" id="onQueueList" style="height:460px;width:250px;"><optgroup label="***ON QUEUE">
+
+                    </optgroup></select></div>
+                    <div class="col-auto" style="margin:0px 0px;width:80px;height:449px;padding:0px 0px;">
+                <div class="row" id="onQueueButtons" style="margin:140px 0px;">
                     <div class="col"><button class="btn btn-success btn-sm" type="button" id="forward" style="height:23px;padding:0px 0px;font-size:12px;margin:6px -8px;width:65px;" data-target="#forwardDoc" data-toggle="modal">Forward</button><button class="btn btn-warning btn-lg" type="button" id="addOnQueueRemarks"
                             style="height:23px;padding:0px 0px;font-size:12px;background-color:rgb(225,33,33);margin:3px -8px;width:62px;" data-target="#remarksModal" data-toggle="modal">Remarks</button><button class="btn btn-primary btn-lg" type="button"
                             id="completed" style="height:23px;padding:0px 0px;font-size:12px;background-color:rgb(225,33,33);margin:6px -8px;width:73px;">Completed</button><button class="btn btn-danger btn-lg" type="button" id="cancel" style="height:23px;padding:0px 0px;font-size:12px;background-color:rgb(225,33,33);margin:3px -8px;width:51px;">Cancel</button></div>
                 </div>
         </div>
-        <div class="col-auto my-auto" style="margin:19px;width:260px;height:449px;"><select multiple="" id="outgoingList" style="height:460px;width:250px;"><optgroup label="***OUTGOING"><option value="12" selected="">180809010-RQST-STACRUZNHS</option><option value="13">180809011-PRCSNG-SILAGOCS</option><option value="14">180809012-RQST-MCRHNCS</option><option value="">180809013-SBMSN-STBRNRD2</option><option value="">180809014-CMNCTN-SOGODCS</option><option value="">180809015-RQST-DOST</option><option value="">180809016-CMNCTN-LBGNCS</option><option value="">180809017-RQST-LGUMAASIN</option><option value="">180809018-RQST-SOGOD2</option></optgroup></select></div>
+        <div class="col-auto my-auto" style="margin:19px;width:260px;height:449px;"><select multiple="" id="outgoingList" style="height:460px;width:250px;"><optgroup label="***OUTGOING">
+
+        </optgroup></select></div>
         <div
             class="col-auto" style="margin:0px 0px;width:80px;height:449px;padding:0px 0px;">
-            <div class="row" style="margin:140px 5px;">
+            <div class="row" id="outgoingButtons" style="margin:140px 5px;">
                 <div class="col"><button class="btn btn-danger btn-sm" type="button" id="cancelForward" style="height:23px;padding:0px 0px;font-size:12px;margin:0px -8px;width:94px;">Cancel Forward</button><button class="btn btn-warning btn-lg" type="button" id="addOutgoingRemarks"
                         style="height:23px;padding:0px 0px;font-size:12px;background-color:rgb(225,33,33);margin:8px -8px;width:62px;" data-target="#remarksModal" data-toggle="modal">Remarks</button></div>
             </div>
@@ -154,6 +159,7 @@ if(!isset($_SESSION['usertype'])) {
     <script src="assets/js/dataTables.bootstrap.min.js"></script>
 
     <script src="../j_js/menu-visibility.js"></script>
+    <script src="../j_js/docprocessing.js"></script>
 </body>
 
 </html>
