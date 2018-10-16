@@ -4,6 +4,8 @@ $(document).ready(function () {
     retrieveOnQueue();
     retrieveForwarded();
     loadDepts();
+     $("#incomingButtons button,#onQueueButtons button,#outgoingButtons button").attr("disabled", "disabled");
+
  
     //event listener when an incoming document is selected
     $("#incomingList").on("click", "optgroup",function() {
@@ -39,14 +41,53 @@ $(document).ready(function () {
             sel=$(this).val();
             docForward(sel,dept); 
         });
+    }); 
+
+    //event listener for canceling forward document/s
+    $("#cancelForward").click(function() {
+        $("#outgoingList option:selected").each(function( index ) {
+            sel=$(this).val();
+            docCForward(sel); 
+        });
+    }); 
+
+    //event listener for accepting document/s
+    $("#acceptIncoming").click(function() {
+        $("#incomingList option:selected").each(function( index ) {
+            sel=$(this).val();
+            docAccept(sel); 
+        });
     });
 
+    //event listener for marking document as completed
+    $("#completed").click(function() {
+        $("#onQueueList option:selected").each(function( index ) {
+            sel=$(this).val();
+            markCompleted(sel); 
+        });
+    });
+
+    //event listener for marking document as cancelled
+    $("#cancel").click(function() {
+        $("#onQueueList option:selected").each(function( index ) {
+            sel=$(this).val();
+            markCancelled(sel); 
+
+        });
+    });
+
+    //event listener for adding remarks to document
+    $("#remarksSave").click(function() {
+        var remarks = $("#remarksModal textarea").val();
+        $("#incomingList option:selected, #onQueueList option:selected, outgoingList option:selected").each(function( index ) {
+            sel=$(this).val();
+            
+            addRemarks(sel,remarks); 
+        });
+        
+        
+    });
     
-
-
-
-
-
 });
 
 
@@ -78,7 +119,6 @@ function loadDepts(){
     $.get("../j_php/departments_retrieve.php", function(data){
             $("#forwardDoc select optgroup").html(data);
         });
-    
 } 
 
 //forwards document to selected department
@@ -87,14 +127,61 @@ function docForward(doc,dept){
         dept_id: dept,
         doc_id: doc 
         },function(data){
-            console.log('success');
+            console.log(data);
+            location.reload();
         });
-    
 } 
 
+//accepts incoming document/s
+function docAccept(doc){
+    $.get("../j_php/document_accept.php", {
+        doc_id: doc 
+        },function(data){
+            console.log(data);
+            location.reload();
+        });
+} 
 
+//cancels forward document to selected department
+function docCForward(doc){
+    $.get("../j_php/document_cforward.php", {
+        doc_id: doc 
+        },function(data){
+            console.log(data);
+            location.reload();
+        });
+} 
 
+//mark document as completed
+function markCompleted(doc){
+    $.get("../j_php/document_mark_complete.php", {
+        doc_id: doc 
+        },function(data){
+            console.log(data);
+            location.reload();
+        });
+}
 
+//mark document as cancelled
+function markCancelled(doc){
+    $.get("../j_php/document_cancel.php", {
+        doc_id: doc 
+        },function(data){
+            console.log(data);
+            location.reload();
+        });
+}
+
+//add remarks to document
+function addRemarks(doc,rem){
+    $.post("../j_php/document_add_remarks.php", {
+        doc_id: doc,
+        remarks: rem
+        },function(data){
+            console.log(data);
+            location.reload();
+        });
+}
 
 
 

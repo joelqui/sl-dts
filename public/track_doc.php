@@ -64,10 +64,15 @@ if(!isset($_SESSION['usertype'])) {
                     <h4 style="color:rgb(134,142,150);">Track Document</h4>
                 </div>
             </div>
+            
             <div class="row" style="padding:0px;margin:7px;height:14px;">
-                <div class="col-auto" style="height:33px;width:165px;"><textarea placeholder="Input Tracking Number" id="inputTracking" style="width:146px;height:25px;font-size:12px;"></textarea></div>
-                <div class="col"><button class="btn btn-success btn-sm" type="button" id="search" style="height:23px;padding:0px 0px;font-size:10px;margin:0px -15px;width:45px;">Search&nbsp;</button></div>
+                <div class="col-auto" style="height:33px;width:165px;">
+                
+                <input type="text" placeholder="Input Tracking Number" id="inputTracking" style="width:146px;height:25px;font-size:12px;">
+                </div>
+                <div class="col"><button class="btn btn-success btn-sm" type="submit" id="search" style="height:23px;padding:0px 0px;font-size:10px;margin:0px -15px;width:45px;">Search&nbsp;</button></div>
             </div>
+            
             <div class="row no-gutters" style="width:1100px;height:465px;">
                 <div class="col-auto visible" style="margin:19px;width:1055px;">
                     <div class="table-responsive visible" style="font-size:12px;background-color:#ffffff;margin:0px;padding:0px;width:1043px;height:418px;">
@@ -80,86 +85,8 @@ if(!isset($_SESSION['usertype'])) {
                                 </tr>
                             </thead>
                             <tbody id="resultsTable">
-                                <tr style="height:25px;">
-                                    <td class="align-middle">2018-09-20 19:48:15<br></td>
-                                    <td class="align-middle">RECEIVED AT SGOD_OFFICE BY ME PEREZ<br></td>
-                                    <td class="align-middle"></td>
-                                </tr>
-                                <tr style="height:25px;">
-                                    <td class="align-middle">2018-09-20 19:48:15<br></td>
-                                    <td class="align-middle">RECEIVED AT SGOD_OFFICE BY ME PEREZ<br></td>
-                                    <td class="align-middle"></td>
-                                </tr>
-                                <tr style="height:25px;">
-                                    <td class="align-middle">2018-09-20 19:48:15<br></td>
-                                    <td class="align-middle">RECEIVED AT SGOD_OFFICE BY ME PEREZ<br></td>
-                                    <td class="align-middle"></td>
-                                </tr>
-                                <tr style="height:25px;">
-                                    <td class="align-middle">2018-09-20 19:48:15<br></td>
-                                    <td class="align-middle">RECEIVED AT SGOD_OFFICE BY ME PEREZ<br></td>
-                                    <td class="align-middle"></td>
-                                </tr>
-                                <tr style="height:25px;">
-                                    <td class="align-middle">2018-09-20 19:48:15<br></td>
-                                    <td class="align-middle">RECEIVED AT SGOD_OFFICE BY ME PEREZ<br></td>
-                                    <td class="align-middle"></td>
-                                </tr>
-                                <tr style="height:25px;">
-                                    <td class="align-middle">2018-09-20 19:48:15<br></td>
-                                    <td class="align-middle">RECEIVED AT SGOD_OFFICE BY ME PEREZ<br></td>
-                                    <td class="align-middle"></td>
-                                </tr>
-                                <tr style="height:25px;">
-                                    <td class="align-middle">2018-09-20 19:48:15<br></td>
-                                    <td class="align-middle">RECEIVED AT SGOD_OFFICE BY ME PEREZ<br></td>
-                                    <td class="align-middle"></td>
-                                </tr>
-                                <tr style="height:25px;">
-                                    <td class="align-middle">2018-09-20 19:48:15<br></td>
-                                    <td class="align-middle">RECEIVED AT SGOD_OFFICE BY ME PEREZ<br></td>
-                                    <td class="align-middle"></td>
-                                </tr>
-                                <tr style="height:25px;">
-                                    <td class="align-middle">2018-09-20 19:48:15<br></td>
-                                    <td class="align-middle">RECEIVED AT SGOD_OFFICE BY ME PEREZ<br></td>
-                                    <td class="align-middle"></td>
-                                </tr>
-                                <tr style="height:25px;">
-                                    <td class="align-middle">2018-09-20 19:48:15<br></td>
-                                    <td class="align-middle">RECEIVED AT SGOD_OFFICE BY ME PEREZ<br></td>
-                                    <td class="align-middle"></td>
-                                </tr>
-                                <tr style="height:25px;">
-                                    <td class="align-middle">2018-09-20 19:48:15<br></td>
-                                    <td class="align-middle">RECEIVED AT SGOD_OFFICE BY ME PEREZ<br></td>
-                                    <td class="align-middle"></td>
-                                </tr>
-                                <tr style="height:25px;">
-                                    <td class="align-middle">2018-09-20 19:48:15<br></td>
-                                    <td class="align-middle">RECEIVED AT SGOD_OFFICE BY ME PEREZ<br></td>
-                                    <td class="align-middle"></td>
-                                </tr>
-                                <tr style="height:25px;">
-                                    <td class="align-middle">2018-09-20 19:48:15<br></td>
-                                    <td class="align-middle">RECEIVED AT SGOD_OFFICE BY ME PEREZ<br></td>
-                                    <td class="align-middle"></td>
-                                </tr>
-                                <tr style="height:25px;">
-                                    <td class="align-middle">2018-09-20 19:48:15<br></td>
-                                    <td class="align-middle">RECEIVED AT SGOD_OFFICE BY ME PEREZ<br></td>
-                                    <td class="align-middle"></td>
-                                </tr>
-                                <tr style="height:25px;">
-                                    <td class="align-middle">2018-09-20 19:48:15<br></td>
-                                    <td class="align-middle">RECEIVED AT SGOD_OFFICE BY ME PEREZ<br></td>
-                                    <td class="align-middle"></td>
-                                </tr>
-                                <tr style="height:25px;">
-                                    <td class="align-middle">2018-09-20 19:48:15<br></td>
-                                    <td class="align-middle">RECEIVED AT SGOD_OFFICE BY ME PEREZ<br></td>
-                                    <td class="align-middle"></td>
-                                </tr>
+                               
+                             
                             </tbody>
                         </table>
                     </div>
@@ -198,6 +125,7 @@ if(!isset($_SESSION['usertype'])) {
     <script src="assets/js/jquery.dataTables.min.js"></script>
     <script src="assets/js/dataTables.bootstrap.min.js"></script>
 
+    <script src="../j_js/doctrack.js"></script>
     <script src="../j_js/menu-visibility.js"></script>
 </body>
 

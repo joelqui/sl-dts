@@ -20,7 +20,7 @@ class DocumentHistory extends DatabaseObject {
         global $database;
         $sql = "SELECT dochist_id FROM ";
         $sql .= static::$table_name." WHERE doc_id = ".$id." AND is_last = 1";
-        echo '<br>'.$sql.'<br>';
+        //echo '<br>'.$sql.'<br>';
         
         $result_set = $database->query($sql);
         

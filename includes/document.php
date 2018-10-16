@@ -22,6 +22,12 @@ class Document extends DatabaseObject {
     public $schoolname;
     public $districtname;
 
+    public static function find_by_tracking($tracking=0){
+        global $database;
+        $result_array = static::find_by_sql("SELECT * FROM ".
+        "documents"." WHERE "."doc_trackingnum"."={$tracking} LIMIT 1");
+        return !empty($result_array) ? array_shift($result_array) : false;
+    }
     
     public static function daily_count() {
         global $database;
@@ -79,33 +85,39 @@ class Document extends DatabaseObject {
         $last_doc_hist = DocumentHistory::find_by_id(DocumentHistory::find_last($this->doc_id));
         //var_dump($last_doc_hist);
         $last_doc_hist->is_last = false;
-        $last_doc_hist->update();
+        return $last_doc_hist->update();
     }
 
     public function receive() {
-        $this->change_is_last();
+        $x=0;
+        $y=0;
+        $x=$this->change_is_last();
+        $this->doc_status = 2;
+        $this->update();
+        
+        $new_doc_hist = new DocumentHistory;
+        $new_doc_hist->doc_id = $this->doc_id;
+        $new_doc_hist->user_id = $_SESSION['user_id'];
+        $new_doc_hist->dept_id = $_SESSION['dept_id'];
+        $new_doc_hist->dochist_type = 1;    
+        $y=$new_doc_hist->create();
+        return $x+$y;  
+    }
+
+    public function forward($dept) {
+        $x=0;
+        $y=0;
+        $x=$this->change_is_last();
         $this->doc_status = 2;
         $this->update();
 
         $new_doc_hist = new DocumentHistory;
         $new_doc_hist->doc_id = $this->doc_id;
         $new_doc_hist->user_id = $_SESSION['user_id'];
-        $new_doc_hist->dept_id = $_SESSION['dept_id'];
-        $new_doc_hist->dochist_type = 1;    
-        $new_doc_hist->create();
-    }
-
-    public function forward($dept) {
-        $this->change_is_last();
-        $this->doc_status = 2;
-        echo $this->update();
-
-        $new_doc_hist = new DocumentHistory;
-        $new_doc_hist->doc_id = $this->doc_id;
-        $new_doc_hist->user_id = $_SESSION['user_id'];
         $new_doc_hist->dept_id = $dept;
         $new_doc_hist->dochist_type = 2;
-        echo $new_doc_hist->create();
+        $y=$new_doc_hist->create();
+        return $x+$y;
     }
 
     public function add_remarks($remarks) {
@@ -116,11 +128,13 @@ class Document extends DatabaseObject {
         $new_doc_hist->dochist_remarks=strtoupper($remarks);
         $new_doc_hist->dochist_type = 3;
         $new_doc_hist->is_last = false;
-        $new_doc_hist->create();
+        return $new_doc_hist->create();
     }
 
     public function cancel_forward() {
-        $this->change_is_last();
+        $x=0;
+        $y=0;
+        $x=$this->change_is_last();
         $this->doc_status = 2;
         $this->update();
 
@@ -129,13 +143,18 @@ class Document extends DatabaseObject {
         $new_doc_hist->user_id = $_SESSION['user_id'];
         $new_doc_hist->dept_id = $_SESSION['dept_id'];
         $new_doc_hist->dochist_type = 4;
-        $new_doc_hist->create();
+        $y=$new_doc_hist->create();
+        return $x+$y;
     }
 
     public function mark_completed() {
-        $this->change_is_last();
+        $x=0;
+        $y=0;
+        $z=0;
+        $x=$this->change_is_last();
         $this->doc_status = 4;
-        $this->update();
+        $this->date_completed=date('Y-m-d');
+        $y=$this->update();
 
         $new_doc_hist = new DocumentHistory;
         $new_doc_hist->doc_id = $this->doc_id;
@@ -143,13 +162,20 @@ class Document extends DatabaseObject {
         $new_doc_hist->dept_id = $_SESSION['dept_id'];
         $new_doc_hist->dochist_type = 5;
         $new_doc_hist->is_last = false;
-        $new_doc_hist->create();
+        $z=$new_doc_hist->create();
+        return $x+$y+$z;
     }
     
     public function mark_cancelled() {
-        $this->change_is_last();
+        $x=0;
+        $y=0;
+        $z=0;
+        $x=$this->change_is_last();
+       
         $this->doc_status = 3;
-        $this->update();
+        $this->date_completed=date('Y-m-d');
+        $y=$this->update();
+        
 
         $new_doc_hist = new DocumentHistory;
         $new_doc_hist->doc_id = $this->doc_id;
@@ -157,7 +183,9 @@ class Document extends DatabaseObject {
         $new_doc_hist->dept_id = $_SESSION['dept_id'];
         $new_doc_hist->dochist_type = 6;
         $new_doc_hist->is_last = false;
-        $new_doc_hist->create();
+        $z=$new_doc_hist->create();
+        
+        return $x+$y+$z;
     }
 
     public function get_dochist() {

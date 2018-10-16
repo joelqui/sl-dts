@@ -31,12 +31,13 @@ $(document).ready(function () {
     });
 
     $("#saveUser").click(function() {
+        console.log(selected);
         if(selected) {
             updateUser(selected);
-            location.reload();
+            //location.reload();
         } else {
             saveUser();
-            location.reload();
+            //location.reload();
         }
     });
 
@@ -87,8 +88,10 @@ function updateUser(userid){
         usertype: $("#usertype").val()
         }, 
         function(data){
-            if(data==1)
+            if(data==1) {
                 alert("User data succesfully updated!")
+                location.reload();
+            }
             else   
                 alert("Something went wrong!");
         }
@@ -107,8 +110,10 @@ function saveUser(){
         function(data){
             if(data==1){
                 alert("User data succesfully added!");
+                location.reload();
             }
             else {   
+                console.log(data);
                 alert("Something went wrong!");
             }
         }

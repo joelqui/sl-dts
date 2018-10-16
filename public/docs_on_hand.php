@@ -114,7 +114,7 @@ if(!isset($_SESSION['usertype'])) {
                 <div class="modal-header" style="background-color:rgb(255,0,0);width:298px;margin:0px 0px;height:30px;padding:2px 2px;">
                     <h5 class="modal-title" style="color:rgb(0,255,255);margin:-2px 4px;">Add Remarks</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
                 <div class="modal-body" style="height:102px;"><textarea style="font-size:12px;padding:0px;width:256px;height:70px;"></textarea></div>
-                <div class="modal-footer" style="height:35px;"><button class="btn btn-light btn-sm" type="button" data-dismiss="modal" style="height:23px;width:50px;margin:0px 0px;padding:0px 0px;">Close</button><button class="btn btn-primary btn-sm" type="button" style="height:23px;padding:0px 0px;margin:0px 10px;width:45px;font-size:12px;">Save</button></div>
+                <div class="modal-footer" style="height:35px;"><button class="btn btn-light btn-sm" type="button" data-dismiss="modal" style="height:23px;width:50px;margin:0px 0px;padding:0px 0px;">Close</button><button class="btn btn-primary btn-sm" id="remarksSave" type="button" style="height:23px;padding:0px 0px;margin:0px 10px;width:45px;font-size:12px;">Save</button></div>
             </div>
         </div>
     </div>
