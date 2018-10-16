@@ -65,11 +65,11 @@ class User extends DatabaseObject {
         $sql .= "FROM documents ";
         $sql .= "INNER JOIN documents_history ON documents.doc_id = documents_history.doc_id ";
         $sql .= "WHERE documents_history.is_last=true ";
-      // $sql .= "AND documents_history.user_id=".$this->user_id';
-        $sql .= "AND documents_history.user_id=1";
+        $sql .= "AND documents_history.user_id=".$this->user_id;
+    
         $sql .= " AND (documents_history.dochist_type=1 OR documents_history.dochist_type=4)";
 
-       // echo $sql;
+    
         $result_set = $database->query($sql);
         $object_array = array();
         while ($row = $database->fetch_array($result_set)){
@@ -109,14 +109,6 @@ class User extends DatabaseObject {
         echo $this->update();
     }
 
-
-    
-
-    
-
-    
-
- 
 
 }
 
