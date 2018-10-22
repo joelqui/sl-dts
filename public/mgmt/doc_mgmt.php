@@ -76,129 +76,13 @@ if(!isset($_SESSION['usertype'])) {
                 <div class="col-2"><input class="visible" type="text" name="doc_search" placeholder="Search Documents" style="width:150px;height:35px;font-size:12px;"></div>
                 <div class="col"><select class="form-control-sm" id="viewSelect" style="font-size:12px;height:33px;"><optgroup label="View Options"><option value="12" selected="">View Requests Only</option><option value="13">View Submissions Only</option><option value="14">View For Processing Only</option></optgroup></select></div>
             </div>
-            <div class="row no-gutters" style="width:1107px;">
-                <div class="col-auto" style="margin:19px;width:1067px;">
-                    <div class="table-responsive" style="font-size:12px;background-color:#ffffff;margin:0px;padding:0px;width:1055px;">
-                        <table class="table table-striped table-bordered table-sm">
-                            <thead>
-                                <tr class="justify-content-start">
-                                    <th style="width:96px;">&nbsp;Tracking Num</th>
-                                    <th style="width:469px;">Document Name</th>
-                                    <th class="visible" style="width:126px;">Queue Time</th>
-                                    <th class="visible" style="width:126px;">Document Owner</th>
-                                    <th style="width:89px;">Location</th>
-                                    <th style="width:92px;">Status</th>
-                                    <th style="width:112px;">Process</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr style="height:35px;">
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">180809010</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">SALARY DIFFERENTIAL OF STA CRUZ NATIONAL HIGH SCHOOL</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">STA CRUZ ES</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">STA CRUZ ES</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">RECORDS</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">IN TRANSIT</td>
-                                    <td style="height:18px;"><button class="btn btn-success active btn-sm" type="button" style="height:20px;padding:0;font-size:10px;margin:0px 2px;width:90px;">Track Document</button></td>
-                                </tr>
-                                <tr style="height:35px;">
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">180809010</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">SALARY DIFFERENTIAL OF STA CRUZ NATIONAL HIGH SCHOOL</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">STA CRUZ ES</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">STA CRUZ ES</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">RECORDS</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">IN TRANSIT</td>
-                                    <td style="height:18px;"><button class="btn btn-success active btn-sm" type="button" style="height:20px;padding:0;font-size:10px;margin:0px 2px;width:90px;">Track Document</button></td>
-                                </tr>
-                                <tr style="height:35px;">
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">180809010</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">SALARY DIFFERENTIAL OF STA CRUZ NATIONAL HIGH SCHOOL</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">STA CRUZ ES</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">STA CRUZ ES</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">RECORDS</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">IN TRANSIT</td>
-                                    <td style="height:18px;"><button class="btn btn-success active btn-sm" type="button" style="height:20px;padding:0;font-size:10px;margin:0px 2px;width:90px;">Track Document</button></td>
-                                </tr>
-                                <tr style="height:35px;">
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">180809010</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">SALARY DIFFERENTIAL OF STA CRUZ NATIONAL HIGH SCHOOL</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">STA CRUZ ES</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">STA CRUZ ES</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">RECORDS</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">IN TRANSIT</td>
-                                    <td style="height:18px;"><button class="btn btn-success active btn-sm" type="button" style="height:20px;padding:0;font-size:10px;margin:0px 2px;width:90px;">Track Document</button></td>
-                                </tr>
-                                <tr style="height:35px;">
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">180809010</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">SALARY DIFFERENTIAL OF STA CRUZ NATIONAL HIGH SCHOOL</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">STA CRUZ ES</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">STA CRUZ ES</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">RECORDS</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">IN TRANSIT</td>
-                                    <td style="height:18px;"><button class="btn btn-success active btn-sm" type="button" style="height:20px;padding:0;font-size:10px;margin:0px 2px;width:90px;">Track Document</button></td>
-                                </tr>
-                                <tr style="height:35px;">
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">180809010</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">SALARY DIFFERENTIAL OF STA CRUZ NATIONAL HIGH SCHOOL</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">STA CRUZ ES</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">STA CRUZ ES</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">RECORDS</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">IN TRANSIT</td>
-                                    <td style="height:18px;"><button class="btn btn-success active btn-sm" type="button" style="height:20px;padding:0;font-size:10px;margin:0px 2px;width:90px;">Track Document</button></td>
-                                </tr>
-                                <tr style="height:35px;">
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">180809010</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">SALARY DIFFERENTIAL OF STA CRUZ NATIONAL HIGH SCHOOL</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">STA CRUZ ES</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">STA CRUZ ES</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">RECORDS</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">IN TRANSIT</td>
-                                    <td style="height:18px;"><button class="btn btn-success active btn-sm" type="button" style="height:20px;padding:0;font-size:10px;margin:0px 2px;width:90px;">Track Document</button></td>
-                                </tr>
-                                <tr style="height:35px;">
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">180809010</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">SALARY DIFFERENTIAL OF STA CRUZ NATIONAL HIGH SCHOOL</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">STA CRUZ ES</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">STA CRUZ ES</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">RECORDS</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">IN TRANSIT</td>
-                                    <td style="height:18px;"><button class="btn btn-success active btn-sm" type="button" style="height:20px;padding:0;font-size:10px;margin:0px 2px;width:90px;">Track Document</button></td>
-                                </tr>
-                                <tr style="height:35px;">
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">180809010</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">SALARY DIFFERENTIAL OF STA CRUZ NATIONAL HIGH SCHOOL</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">STA CRUZ ES</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">STA CRUZ ES</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">RECORDS</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">IN TRANSIT</td>
-                                    <td style="height:18px;"><button class="btn btn-success active btn-sm" type="button" style="height:20px;padding:0;font-size:10px;margin:0px 2px;width:90px;">Track Document</button></td>
-                                </tr>
-                                <tr style="height:35px;">
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">180809010</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">SALARY DIFFERENTIAL OF STA CRUZ NATIONAL HIGH SCHOOL</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">STA CRUZ ES</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">STA CRUZ ES</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">RECORDS</td>
-                                    <td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">IN TRANSIT</td>
-                                    <td style="height:18px;"><button class="btn btn-success active btn-sm" type="button" style="height:20px;padding:0;font-size:10px;margin:0px 2px;width:90px;">Track Document</button></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="col" style="width:1071px;height:27px;">
-                    <nav style="width:940px;height:33px;">
-                        <ul class="pagination">
-                            <li class="page-item"><a class="page-link" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                            <li class="page-item"><a class="page-link">1</a></li>
-                            <li class="page-item"><a class="page-link">2</a></li>
-                            <li class="page-item"><a class="page-link">3</a></li>
-                            <li class="page-item"><a class="page-link">4</a></li>
-                            <li class="page-item"><a class="page-link">5</a></li>
-                            <li class="page-item"><a class="page-link" aria-label="Next"><span aria-hidden="true">»</span></a></li>
-                        </ul>
-                    </nav>
-                </div>
+            <div id="tableHolder" class="row no-gutters" style="width:1107px;">
+
+                        
+
+
+
+
             </div>
         </div>
     </div>
@@ -233,6 +117,7 @@ if(!isset($_SESSION['usertype'])) {
     <script src="../assets/js/jquery.dataTables.min.js"></script>
     <script src="../assets/js/dataTables.bootstrap.min.js"></script>
 
+    <script src="../../j_js/docmgmt.js"></script>
     <script src="../../j_js/menu-visibility.js"></script>
 </body>
 
