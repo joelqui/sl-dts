@@ -79,7 +79,7 @@ $(document).ready(function () {
     //event listener for adding remarks to document
     $("#remarksSave").click(function() {
         var remarks = $("#remarksModal textarea").val();
-        $("#incomingList option:selected, #onQueueList option:selected, outgoingList option:selected").each(function( index ) {
+        $("#incomingList option:selected, #onQueueList option:selected, #outgoingList option:selected").each(function( index ) {
             sel=$(this).val();
             
             addRemarks(sel,remarks); 

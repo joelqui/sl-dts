@@ -1,14 +1,18 @@
 <?php
 
 // Include the main TCPDF library (search for installation path).
-
 require_once('tcpdf_include.php');
+//Include dts important files
+require_once("../includes/initialize.php");
+
+$doc=Document::find_by_tracking($_GET['trackingnum']);
+$user=User::find_by_id($doc->personnel_id);
 //document variables
-$dts_timestamp="2018-01-01 1:11PM";
-$dts_tracking="111111111";
-$dts_docname="One One One";
-$dts_docowner="Form One Fuck You Planning";
-$dts_docreceiver="YOKO ONO";
+$dts_timestamp=$doc->date_started;
+$dts_tracking=$doc->doc_trackingnum;
+$dts_docname=$doc->doc_name;
+$dts_docowner=$doc->doc_owner;
+$dts_docreceiver=$user->full_name();
 
 // create new PDF document
 $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
