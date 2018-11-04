@@ -42,7 +42,8 @@ class User extends DatabaseObject {
 
     public function get_incoming() {
         global $database;
-        $sql = "SELECT documents.doc_id, CONCAT(documents.doc_trackingnum,'-',documents.doc_type,'-',documents.doc_code) AS doc_code ";
+        $sql = "SELECT documents.doc_id, CONCAT(documents.doc_trackingnum,'-',documents.doc_type,'-',documents.doc_code) AS doc_code, ";
+        $sql .= "doc_name, doc_owner, date_started, TIMESTAMPDIFF(DAY,documents_history.timestamp,NOW()) AS queue ";
         $sql .= "FROM documents ";
         $sql .= "INNER JOIN documents_history ON documents.doc_id = documents_history.doc_id ";
         $sql .= "WHERE documents_history.is_last=true ";
@@ -61,7 +62,8 @@ class User extends DatabaseObject {
 
     public function get_onqueue() {
         global $database;
-        $sql = "SELECT documents.doc_id, CONCAT(documents.doc_trackingnum,'-',documents.doc_type,'-',documents.doc_code) AS doc_code ";
+        $sql = "SELECT documents.doc_id, CONCAT(documents.doc_trackingnum,'-',documents.doc_type,'-',documents.doc_code) AS doc_code, ";
+        $sql .= "doc_name, doc_owner, date_started, TIMESTAMPDIFF(DAY,documents_history.timestamp,NOW()) AS queue ";
         $sql .= "FROM documents ";
         $sql .= "INNER JOIN documents_history ON documents.doc_id = documents_history.doc_id ";
         $sql .= "WHERE documents_history.is_last=true ";
@@ -80,7 +82,8 @@ class User extends DatabaseObject {
 
     public function get_forwarded() {
         global $database;
-        $sql = "SELECT documents.doc_id, CONCAT(documents.doc_trackingnum,'-',documents.doc_type,'-',documents.doc_code) AS doc_code ";
+        $sql = "SELECT documents.doc_id, CONCAT(documents.doc_trackingnum,'-',documents.doc_type,'-',documents.doc_code) AS doc_code, ";
+        $sql .= "doc_name, doc_owner, date_started, TIMESTAMPDIFF(DAY,documents_history.timestamp,NOW()) AS queue ";
         $sql .= "FROM documents ";
         $sql .= "INNER JOIN documents_history ON documents.doc_id = documents_history.doc_id ";
         $sql .= "WHERE documents_history.is_last=true ";

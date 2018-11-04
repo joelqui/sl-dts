@@ -1,8 +1,8 @@
 $(document).ready(function () {
-    alert('Documents Baby!!!');
     retrieveIncoming();
     retrieveOnQueue();
     retrieveForwarded();
+
     loadDepts();
      $("#incomingButtons button,#onQueueButtons button,#outgoingButtons button").attr("disabled", "disabled");
 
@@ -10,84 +10,99 @@ $(document).ready(function () {
     //event listener when an incoming document is selected
     $("#incomingList").on("click", "optgroup",function() {
         $("#incomingButtons button").removeAttr("disabled");
-        $("#onQueueButtons button").attr("disabled", "disabled");
-        $("#outgoingButtons button").attr("disabled", "disabled");
-        $("#onQueueList").val("");
-        $("#outgoingList").val("");
+        $("#onQueueButtons button, #outgoingButtons button").attr("disabled", "disabled");
+        $("#onQueueList,#outgoingList").val("");
       });
     
     //event listener when an onqueue document is selected
     $("#onQueueList").on("click", "optgroup",function() {
-        $("#incomingButtons button").attr("disabled", "disabled");
+        $("#incomingButtons button,#outgoingButtons button").attr("disabled", "disabled");
         $("#onQueueButtons button").removeAttr("disabled");
-        $("#outgoingButtons button").attr("disabled", "disabled");
-        $("#incomingList").val("");
-        $("#outgoingList").val("");
+        $("#incomingList, #outgoingList").val("");
       });
     
     //event listener when an incoming document is selected
     $("#outgoingList").on("click", "optgroup",function() {
-        $("#incomingButtons button").attr("disabled", "disabled");
-        $("#onQueueButtons button").attr("disabled", "disabled");
+        $("#incomingButtons button,#onQueueButtons button").attr("disabled", "disabled");
         $("#outgoingButtons button").removeAttr("disabled");
-        $("#onQueueList").val("");
-        $("#incomingList").val("");
+        $("#onQueueList,#incomingList").val("");
       });
 
     //event listener for forwarding document/s
     $("#mForward").click(function() {
         dept=$("#forwardDoc option:selected").val();
-        $("#onQueueList option:selected").each(function( index ) {
-            sel=$(this).val();
-            docForward(sel,dept); 
-        });
+
+        if(confirm("Are you sure you want to forward the selected documents?")){
+            $("#onQueueList option:selected").each(function( index ) {
+                sel=$(this).val();
+                docForward(sel,dept); 
+            });
+        }
+
     }); 
 
     //event listener for canceling forward document/s
     $("#cancelForward").click(function() {
-        $("#outgoingList option:selected").each(function( index ) {
-            sel=$(this).val();
-            docCForward(sel); 
-        });
+
+        if(confirm("Are you sure you want to cancel the forwarding of the selected documents?")){
+            $("#outgoingList option:selected").each(function( index ) {
+                sel=$(this).val();
+                docCForward(sel); 
+            });
+        }
+        
     }); 
 
     //event listener for accepting document/s
     $("#acceptIncoming").click(function() {
-        $("#incomingList option:selected").each(function( index ) {
-            sel=$(this).val();
-            docAccept(sel); 
-        });
+
+        if(confirm("Are you sure you want to accept the selected documents?")){
+            $("#incomingList option:selected").each(function( index ) {
+                sel=$(this).val();
+                docAccept(sel); 
+            });
+        }
+        
     });
 
     //event listener for marking document as completed
     $("#completed").click(function() {
-        $("#onQueueList option:selected").each(function( index ) {
-            sel=$(this).val();
-            markCompleted(sel); 
-        });
+
+        if(confirm("Are you sure you want to mark selected documents as completed?")){
+            $("#onQueueList option:selected").each(function( index ) {
+                sel=$(this).val();
+                markCompleted(sel); 
+            });
+        }
+        
     });
 
     //event listener for marking document as cancelled
     $("#cancel").click(function() {
-        $("#onQueueList option:selected").each(function( index ) {
-            sel=$(this).val();
-            markCancelled(sel); 
 
-        });
+        if(confirm("Are you sure you want to mark selected documents as cancelled?")){
+            $("#onQueueList option:selected").each(function( index ) {
+                sel=$(this).val();
+                markCancelled(sel); 
+            });
+        }
+       
     });
 
     //event listener for adding remarks to document
     $("#remarksSave").click(function() {
         var remarks = $("#remarksModal textarea").val();
-        $("#incomingList option:selected, #onQueueList option:selected, #outgoingList option:selected").each(function( index ) {
-            sel=$(this).val();
-            
-            addRemarks(sel,remarks); 
-        });
-        
-        
+
+        if(confirm("Are you sure you want to save the following remarks?")){
+            $("#incomingList option:selected, #onQueueList option:selected, #outgoingList option:selected").each(function( index ) {
+                sel=$(this).val();
+                addRemarks(sel,remarks); 
+            });
+        }
     });
     
+
+
 });
 
 
@@ -127,7 +142,6 @@ function docForward(doc,dept){
         dept_id: dept,
         doc_id: doc 
         },function(data){
-            console.log(data);
             location.reload();
         });
 } 

@@ -2,12 +2,12 @@ $(document).ready(function () {
     var dept = $("#usernameHolder").data('dept');
 
    // getDocList(1,1,dept);
-    getDocList(1,1,2);
+    getDocList(0,1,64);
 
     $("#tableHolder").on( "click", ".page-item",function() {
         page = $(this).data('value');
         console.log;
-        getDocList(1,page,2);
+        getDocList(0,page,64);
       });
    
 

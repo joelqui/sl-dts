@@ -71,7 +71,7 @@ if(!isset($_SESSION['usertype'])) {
                 <div class="col-auto" style="margin:19px;width:923px;">
                     <form style="width:925px;">
                         <h4 style="color:rgb(134,142,150);">You've successfully added a document.</h4>
-                        <h4 id="docTrackHolder" style="color:rgb(134,142,150);">Your document tracking number is&nbsp;<?php echo $_GET['tracking']; ?></h4>
+                        <h4 id="docTrackHolder" data-tracking="<?php echo $_GET['tracking']; ?>" style="color:rgb(134,142,150);">Your document tracking number is&nbsp;<?php echo $_GET['tracking']; ?></h4>
                     </form>
                 </div>
             </div>
@@ -109,6 +109,7 @@ if(!isset($_SESSION['usertype'])) {
     <script src="assets/js/jquery.dataTables.min.js"></script>
     <script src="assets/js/dataTables.bootstrap.min.js"></script>
 
+    <script src="../j_js/document-add.js"></script>
     <script src="../j_js/menu-visibility.js"></script>
 </body>
 

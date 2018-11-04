@@ -1,5 +1,5 @@
 <?php
-header("Content-Type: text/javascript; charset=utf-8");
+
 require_once("../includes/initialize.php");
 
 global $database;

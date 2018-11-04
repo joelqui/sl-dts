@@ -14,7 +14,8 @@ if(!isset($_SESSION['usertype'])) {
 <html>
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dts-Add Document</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
@@ -76,10 +77,10 @@ if(!isset($_SESSION['usertype'])) {
                                 <div class="col"><label class="col-form-label" style="font-size:15px;">Document Name:</label><input class="form-control" type="text" id="docName" style="width:496px;height:30px;font-size:14px;"></div>
                             </div>
                             <div class="form-row">
-                                <div class="col"><label class="col-form-label" style="font-size:15px;">Document Type:</label><select class="form-control" id="docType" style="height:30px;width:165px;font-size:14px;padding:4px;"><option value="1" selected="">Request</option><option value="2">For Processing</option><option value="3">Submission</option><option value="4">Communication</option></select></div>
+                                <div class="col"><label class="col-form-label" style="font-size:15px;">Document Type:</label><select class="form-control" id="docType" style="height:30px;width:165px;font-size:14px;padding:4px;"><option value="1">Request</option><option value="2">For Processing</option><option value="3">Submission</option><option value="4">Communication</option></select></div>
                             </div>
                             <div class="form-row">
-                                <div class="col"><label class="col-form-label" style="font-size:15px;">Document Owner Type:</label><select class="form-control" id="docOwnerType" style="height:30px;width:165px;font-size:14px;padding:4px;"><optgroup label="docownertype"><option value="1" selected="">District</option><option value="2">School</option><option value="3">Individual</option><option value="4">Other</option></optgroup></select></div>
+                                <div class="col"><label class="col-form-label" style="font-size:15px;">Document Owner Type:</label><select class="form-control" id="docOwnerType" style="height:30px;width:165px;font-size:14px;padding:4px;"><optgroup label="docownertype"><option value="1">District</option><option value="2">School</option><option value="3">Individual</option><option value="4">Other</option></optgroup></select></div>
                             </div>
                             <div class="form-row" style="width:922px;padding:6px;font-size:15px;">
                                 <div class="col-2 visible" id="districtOwner" style="width:149px;padding:0px;height:66px; "><label class="col-form-label">District:</label><select class="form-control" id="district" style="height:30px;width:145px;font-size:14px;padding:4px;"><optgroup label="Districts"></optgroup></select></div>
@@ -92,7 +93,7 @@ if(!isset($_SESSION['usertype'])) {
                 </div>
             </div>
             <div class="row" style="padding:0px;margin:7px;width:934px;">
-                <div class="col" style="width:961px;height:28px;"><button class="btn btn-success" type="button" id="addDoc" style="height:33px;width:143px;font-size:14px;padding:5px;">Add Document</button></div>
+                <div class="col" style="width:961px;height:28px;"><button class="btn btn-success" type="button" id="addDoc" style="height:33px;width:143px;font-size:14px;padding:5px;" disabled>Add Document</button></div>
             </div>
         </div>
     </div>
@@ -124,7 +125,7 @@ if(!isset($_SESSION['usertype'])) {
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/jquery.dataTables.min.js"></script>
     <script src="assets/js/dataTables.bootstrap.min.js"></script>
-
+  
     <script src="../j_js/document.js"></script>
     <script src="../j_js/menu-visibility.js"></script>
 </body>

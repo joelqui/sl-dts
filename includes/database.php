@@ -1,4 +1,5 @@
 <?php
+header("Content-type: text/html; charset=iso-8859-1");
 require_once("config.php");
 
 class MySQLDatabase {

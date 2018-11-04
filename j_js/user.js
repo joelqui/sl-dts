@@ -19,6 +19,15 @@ $(document).ready(function () {
         selected=$(this).parent().parent().data('id');
         deleteUser(selected);
      });
+
+     // Event Listener for Reset Password Button
+     $("#tableArea").on( "click", ".btn-success",function() {
+        selected=$(this).parent().parent().data('id');
+        if(confirm("Are you sure you want to reset the password of selected user?")){
+            resetPassword(selected);
+        }
+        
+     });
     
     $("body").on( "click", ".btn-success",function() {
         $("input:password").parent().show();
@@ -139,9 +148,20 @@ function deleteUser(userid){
         );
     } else {
         //txt = "You pressed Cancel!";
-    }
-    
-    
+    } 
+}
+
+
+//function for resetting password
+function resetPassword(select){
+    $.post("../../j_php/user_change_password.php", {
+        user_id: select,
+        password: "deped4ever"
+        },function(data){ 
+            if (data==1){
+                alert("Password reset successful!");
+            }
+        });
 }
 
 

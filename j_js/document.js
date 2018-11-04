@@ -1,20 +1,59 @@
 $(document).ready(function () {
     var docOwner;
     loadDistricts();
-    
 
-    
-$("#docName").val();
-$("#docType").val(3);
-$("#docOwnerType").val("");
-$("#district").val("HINUJANGAN");
-$("#school").val("SHIR");
-$("#individual").val("not");
-$("#other").val("no");
+$("input,select").val("");
+
+//event listener for entry validation
+$("body").on( "change keyup", "select,input",function() {
+    //condition to check if main inputs are present
+    if(($.trim($("#docName").val()) != "") && ($.trim($("#docType").val()) != "") && ($.trim($("#docOwnerType").val()) != "")){
+        //doc owner is district
+        if(($("#docOwnerType").val() == 1) && ($("#district").val() != null )){
+            $("#addDoc").removeAttr("disabled");
+        }
+        //doc owner is school
+        else if(($("#docOwnerType").val() == 2) && ($("#school").val() != null )){
+            $("#addDoc").removeAttr("disabled");
+        }
+        //doc owner is individual
+        else if(($("#docOwnerType").val() == 3) && ($.trim($("#individual").val()) != "" )){
+            $("#addDoc").removeAttr("disabled");
+        }
+        //doc owner is others
+        else if(($("#docOwnerType").val() == 4) && ($.trim($("#other").val()) != "" )){
+            $("#addDoc").removeAttr("disabled");
+        }
+        else {
+            $("#addDoc").attr("disabled", "disabled");
+        }     
+    }  
+    else
+        $("#addDoc").attr("disabled", "disabled");
+});
 
 $("body").on( "change", "#docOwnerType",function() {
-    
+    //condition to check if main inputs are present
+    if($("#docOwnerType").val()==1){
+        $("#school,#individual,#other").attr("disabled", "disabled");
+        $("#district").removeAttr("disabled");
+    }
+    else if($("#docOwnerType").val()==2){
+        $("#individual,#other").attr("disabled", "disabled");
+        $("#district,#school").removeAttr("disabled");
+    } 
+    else if($("#docOwnerType").val()==3){
+        $("#district,#school,#other").attr("disabled", "disabled");
+        $("#individual").removeAttr("disabled");
+    } 
+    else if($("#docOwnerType").val()==4){
+        $("#district,#school,#individual").attr("disabled", "disabled");
+        $("#other").removeAttr("disabled");
+    }
+        
 });
+
+
 
 $("#addDoc").click(function() {
     ownerSelected = $("#docOwnerType").val();

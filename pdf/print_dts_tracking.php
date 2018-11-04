@@ -68,7 +68,7 @@ $html = '<table border="1" cellspacing="3" cellpadding="4"><tr>
 <th style="width:4%"></th>
 <th style="width:48%" colspan="2"><h3 align="center">DepEd Southern Leyte <br> Document Tracking System</h3></th></tr>
 
-<tr><td style="width:18%;height:30px">Timestamp:</td><td style="width:30%">'.$dts_timestamp.'</td><td style="width:4%"></td><td style="width:18%">Timestamp:</td><td style="width:30%">'.$dts_timestamp.'</td></tr>
+<tr><td style="width:18%;height:30px">Date Received:</td><td style="width:30%">'.$dts_timestamp.'</td><td style="width:4%"></td><td style="width:18%">Date Received:</td><td style="width:30%">'.$dts_timestamp.'</td></tr>
 <tr><td style="height:30px">Tracking Number:</td><td>'.$dts_tracking.'</td><td></td><td>Tracking Number:</td><td>'.$dts_tracking.'</td></tr>     
 <tr><td style="height:30px">Document Name:</td><td>'.$dts_docname.'</td><td></td><td>Document Name:</td><td>'.$dts_docname.'</td></tr> 
 <tr><td style="height:30px">Document Owner:</td><td>'.$dts_docowner.'</td><td></td><td>Document Owner:</td><td>'.$dts_docowner.'</td></tr>  
