@@ -72,9 +72,9 @@ if(!isset($_SESSION['usertype'])) {
                     <h4 style="color:rgb(134,142,150);">Document Management</h4>
                 </div>
             </div>
-            <div class="row" style="padding:0px;margin:7px;height:50px;">
+            <div class="row" style="padding:0px;margin:7px;height:21px;">
                 <div class="col-2"><input class="visible" type="text" name="doc_search" placeholder="Search Documents" style="width:150px;height:35px;font-size:12px;"></div>
-                <div class="col"><select class="form-control-sm" id="viewSelect" style="font-size:12px;height:33px;"><optgroup label="View Options"><option value="12" selected="">View Requests Only</option><option value="13">View Submissions Only</option><option value="14">View For Processing Only</option></optgroup></select></div>
+                <div class="col"><select class="form-control-sm" id="viewSelect" style="font-size:12px;height:33px;"><option value="0" selected disabled hidden>View Options</option><option value="0">View All</option><option value="1">View Waiting</option><option value="2">View In Transit</option><option value="3">View Cancelled</option><option value="4">View Completed</option></select></div>
             </div>
             <div id="tableHolder" class="row no-gutters" style="width:1107px;">
 

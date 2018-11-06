@@ -4,15 +4,16 @@ require_once("../includes/initialize.php");
 
 global $database;
 
-$isAdmin = $_GET['is_admin'];
+$docStatus = $_GET['docstatus'];
+if($docStatus == null)
+    $docStatus=0; 
 //for pagination
 $page = $_GET['page'];
 //$page = 1;
 $per_page = 10;
 
-$dept = $isAdmin ? 0 : $_GET['dept'];
 
-$total_count = $isAdmin ? Document::count_all() : Document::count_all_intransit_from_dept($dept);
+$total_count = Document::count_all_same_doc_status($docStatus);
 //echo $total_count;
 
 //echo $dept;
@@ -20,12 +21,14 @@ $total_count = $isAdmin ? Document::count_all() : Document::count_all_intransit_
 $pagination = new Pagination($page, $per_page, $total_count);
 
 $sql = "SELECT documents.doc_id,doc_trackingnum,doc_name,doc_owner,doc_status,";
-$sql .= "TIMESTAMPDIFF(DAY,documents_history.timestamp,NOW()) AS queue, departments.dept_abbreviation AS location ";
+$sql .= "TIMESTAMPDIFF(DAY,documents_history.timestamp,NOW()) AS queue ";
 $sql .= "from documents ";
-$sql .= "LEFT JOIN documents_history ON documents.doc_id = documents_history.doc_id AND documents_history.is_last = 1 LEFT JOIN departments ON documents_history.dept_id = departments.dept_id ";
-if($isAdmin == false)
-    $sql .= "WHERE documents_history.dept_id = {$dept} AND documents_history.is_last = 1 ";
-$sql .= "ORDER BY queue DESC ";
+$sql .= "LEFT JOIN documents_history ON documents.doc_id = documents_history.doc_id AND documents_history.is_last = 1 ";
+if($docStatus != 0){
+    $sql .= "WHERE doc_status = {$docStatus} ";
+}
+   
+$sql .= "ORDER BY doc_trackingnum DESC ";
 $sql .= "LIMIT {$per_page} ";
 $sql .= "OFFSET {$pagination->offset()}";
 
@@ -46,9 +49,8 @@ while ($row = $database->fetch_array($result_set)){
 
 
 $htmlContent1 = '<div class="col-auto" style="margin:19px;width:1067px;"><div class="table-responsive" style="font-size:12px;background-color:#ffffff;margin:0px;padding:0px;width:1055px;">
-                 <table class="table table-striped table-bordered table-sm"><thead><tr class="justify-content-start"><th style="width:96px;">&nbsp;Tracking Num</th><th style="width:295px;">Document Name</th>
-        <th class="visible" style="width:90px;">Queue Time</th><th class="visible" style="width:249px;">Document Owner</th>
-<th style="width:89px;">Location</th><th style="width:92px;">Status</th><th style="width:112px;">Process</th></tr>
+                 <table class="table table-striped table-bordered table-sm"><thead><tr class="justify-content-start"><th style="width:96px;">&nbsp;Tracking Num</th><th style="width:295px;">Document Name</th><th class="visible" style="width:90px;">Queue Time</th>
+                 <th class="visible" style="width:249px;">Document Owner</th><th style="width:92px;">Status</th><th style="width:112px;">Process</th></tr>
 </thead><tbody>';
 
 $htmlContent2 = "";
@@ -63,9 +65,8 @@ else {
     foreach($object_array as $doc) {
                 $htmlContent2 .= '<tr data-id"'.$doc["doc_id"].'" style="height:35px;"><td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">'.$doc["doc_trackingnum"];
                 $htmlContent2 .= '</td><td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">'.$doc["doc_name"];
-                $htmlContent2 .= '</td><td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">'.$doc["queue"];
+                $htmlContent2 .= '</td><td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">'.$doc["queue"].' day/s';
                 $htmlContent2 .= '</td><td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">'.$doc["doc_owner"];
-                $htmlContent2 .= '</td><td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">'.$doc["location"];
                 $htmlContent2 .= '</td><td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">'.$doc["doc_status"];
                 $htmlContent2 .= '</td><td style="height:18px;"><button class="btn btn-success active btn-sm" type="button"';
                 $htmlContent2 .= 'style="height:20px;padding:0;font-size:10px;margin:0px 2px;width:90px;">Track Document';

@@ -39,12 +39,13 @@ class Document extends DatabaseObject {
         return $result_set->fetch_assoc()['total_found'];
     }
 
-    public static function count_all_intransit_from_dept($dept) {
+    public static function count_all_same_doc_status($docStatus) {
         global $database; 
         $sql = "SELECT COUNT(*) from documents "; 
         $sql .= "LEFT JOIN documents_history ON documents.doc_id = documents_history.doc_id AND documents_history.is_last = 1 ";
-        $sql .= "WHERE documents_history.dept_id = ".$dept." AND documents_history.is_last = 1";
-       // echo $sql;
+        if($docStatus!=0)
+            $sql .= "WHERE doc_status = ".$docStatus;
+        
         $result_set = $database->query($sql);
         $row = $database->fetch_array($result_set);
         return array_shift($row); 
