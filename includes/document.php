@@ -39,12 +39,20 @@ class Document extends DatabaseObject {
         return $result_set->fetch_assoc()['total_found'];
     }
 
-    public static function count_all_same_doc_status($docStatus) {
+    public static function count_all_same_doc_status($docStatus,$searchTerm) {
         global $database; 
         $sql = "SELECT COUNT(*) from documents "; 
         $sql .= "LEFT JOIN documents_history ON documents.doc_id = documents_history.doc_id AND documents_history.is_last = 1 ";
-        if($docStatus!=0)
-            $sql .= "WHERE doc_status = ".$docStatus;
+        if($docStatus != 0 && strlen($searchTerm)<5){
+            $sql .= "WHERE doc_status = {$docStatus} ";
+        }
+        else if($docStatus != 0 && strlen($searchTerm)>4) {
+            $sql .= "WHERE doc_status = {$docStatus} AND doc_trackingnum LIKE '$searchTerm%' OR doc_name LIKE '$searchTerm%' OR doc_owner LIKE '$searchTerm%' ";
+        }
+        else if(strlen($searchTerm)>4){
+            $sql .= "WHERE doc_trackingnum LIKE '$searchTerm%' OR doc_name LIKE '$searchTerm%' OR doc_owner LIKE '$searchTerm%' ";
+        }
+        
         
         $result_set = $database->query($sql);
         $row = $database->fetch_array($result_set);

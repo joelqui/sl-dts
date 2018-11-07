@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 04, 2018 at 11:56 PM
+-- Generation Time: Nov 07, 2018 at 10:15 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 5.6.37
 
@@ -40,10 +40,28 @@ CREATE TABLE `departments` (
 --
 
 INSERT INTO `departments` (`dept_id`, `dept_name`, `dept_head`, `dept_abbreviation`) VALUES
-(5, 'INFORMATION AND COMMUNICATIONS TECHNOLOGY SERVICES UNIT', 21, 'SDO_ICT'),
-(63, 'OFFICE OF THE SDS - PROPER', 2, 'SDO_OFFICE'),
-(64, 'records section', 17, 'OSDS-RECORDS'),
-(65, 'ADMIN SECTION', 18, 'OSDS-ADMIN');
+(66, 'BIDS AND AWARDS COMMITTEE OFFICE', 0, 'BAC-OFFICE'),
+(67, 'CURRICULUM IMPLEMENTATION DIVISION-ALTERNATIVE LEARNING SYSTEM', 0, 'CID-ALS'),
+(68, 'CURRICULUM IMPLEMENTATION DIVISION-LIBRARY HUB', 0, 'CID-LIBHUB'),
+(69, 'CURRICULUM IMPLEMENTATION DIVISION-LEARNING RESOURCE', 0, 'CID-LR'),
+(70, 'CURRICULUM IMPLEMENTATION DIVISION OFFICE', 0, 'CID OFFICE'),
+(71, 'COMMISSION ON AUDIT OFFICE', 0, 'COA OFFICE'),
+(72, 'OFFICE OF THE SCHOOLS DIVISION SUPERINTENDENT-ACCOUNTING', 0, 'OSDS-ACCNTNG'),
+(73, 'OFFICE OF THE SCHOOLS DIVISION SUPERINTENDENT-ADMINISTRATIVE', 0, 'OSDS-ADMIN'),
+(74, 'OFFICE OF THE SCHOOLS DIVISION SUPERINTENDENT-ASSISTANT SCHOOLS DIVISION SUPERINTENDENT', 0, 'OSDS-ASDS'),
+(75, 'OFFICE OF THE SCHOOLS DIVISION SUPERINTENDENT-BUDGET', 0, 'OSDS-BUDGET'),
+(76, 'OFFICE OF THE SCHOOLS DIVISION SUPERINTENDENT-CASHIER', 0, 'OSDS-CASHIER'),
+(77, 'OFFICE OF THE SCHOOLS DIVISION SUPERINTENDENT-INFORMATION AND COMMUNICATION  TECHNOLOGY', 0, 'OSDS-ICT'),
+(78, 'OFFICE OF THE SCHOOLS DIVISION SUPERINTENDENT-LEGAL', 0, 'OSDS-LEGAL'),
+(79, 'OFFICE OF THE SCHOOLS DIVISION SUPERINTENDENT OFFICE', 0, 'OSDS OFFICE'),
+(80, 'OFFICE OF THE SCHOOLS DIVISION SUPERINTENDENT-RECORDS', 0, 'OSDS-RECORDS'),
+(81, 'OFFICE OF THE SCHOOLS DIVISION SUPERINTENDENT-SUPPLY', 0, 'OSDS-SUPPLY'),
+(82, 'SCHOOL GOVERNANCE OPERATION DIVISION-HUMAN RESOURCE AND DEVELOPMENT', 0, 'SGOD-HR&D'),
+(83, 'SCHOOL GOVERNANCE OPERATION DIVISION-MONITORING AND EVALUATION', 0, 'SGOD-M&E'),
+(84, 'SCHOOL GOVERNANCE OPERATION DIVISION-MEDICAL', 0, 'SGOD-MEDICAL'),
+(85, 'SCHOOL GOVERNANCE OPERATION DIVISION', 0, 'SGOD OFFICE'),
+(86, 'SCHOOL GOVERNANCE OPERATION DIVISION-PLANNING AND RESEARCH', 0, 'SGOD-P&R'),
+(87, 'SCHOOL GOVERNANCE OPERATION DIVISION-SOCIAL MOBILIZATION', 0, 'SGOD-SOCMOB');
 
 -- --------------------------------------------------------
 
@@ -109,8 +127,6 @@ CREATE TABLE `documents` (
 --
 
 INSERT INTO `documents` (`doc_id`, `doc_name`, `doc_trackingnum`, `doc_code`, `doc_status`, `date_started`, `date_completed`, `personnel_id`, `doc_owner`, `doc_type`) VALUES
-(1, 'LITTLe PAPU', 186759, 'HGFHGFS', 'IN TRANSIT', '0000-00-00', '0000-00-00', 2, 'JAW CYDA', ''),
-(3, 'LITTLe PAPU', 186759, 'HGFHGFS', 'IN TRANSIT', '0000-00-00', '0000-00-00', 2, 'JAW CYDA', ''),
 (5, 'LITTLehfhgU', 180915007, 'hgfhfghfgh', 'IN TRANSIT', '2018-09-15', '0000-00-00', 3, 'JUDE lAW', ''),
 (85, 'LITTLehfhgU', 180915006, 'hgfhfghfgh', 'IN TRANSIT', '2018-09-15', '0000-00-00', 3, 'JUDE lAW', ''),
 (87, 'LITTLehfhgU', 180915008, 'hgfhfghfgh', 'IN TRANSIT', '2018-09-15', '0000-00-00', 3, 'JUDE lAW', ''),
@@ -128,35 +144,19 @@ INSERT INTO `documents` (`doc_id`, `doc_name`, `doc_trackingnum`, `doc_code`, `d
 (99, 'School form 8', 180917001, 'JKQ-SF8', 'WAITING', '2018-09-17', '0000-00-00', 3, 'JOEL KEE QUILANTANG', 'RQST'),
 (100, 'School form 8', 180917001, 'JKQ-SF8', 'IN TRANSIT', '2018-09-17', '0000-00-00', 3, 'JOEL KEE QUILANTANG', 'RQST'),
 (101, 'LITTLehfhgU', 180915005, 'hgfhfghfgh', 'IN TRANSIT', '2018-09-15', '0000-00-00', 3, 'JUDE lAW', ''),
-(111, 'LITTLe PAPU', 186759, 'HGFHGFS', 'IN TRANSIT', '0000-00-00', '0000-00-00', 2, 'JAW CYDA', ''),
-(113, 'LITTLe PAPU', 186759, 'HGFHGFS', 'IN TRANSIT', '0000-00-00', '0000-00-00', 2, 'JAW CYDA', ''),
-(114, 'Penis Enlargement Proposal', 180918001, 'DL-PEP', 'IN TRANSIT', '2018-09-18', '0000-00-00', 3, 'DYUN LUCENECIO', 'SUBM'),
-(115, 'pussy%is%real', 181011001, 'J-P', 'IN TRANSIT', '2018-10-11', '0000-00-00', 0, 'joel%quilantag', 'SUBM'),
-(116, 'pussy%is%real', 181011002, 'J-P', 'IN TRANSIT', '2018-10-11', '0000-00-00', 0, 'joel%quilantag', 'SUBM'),
-(117, 'pussy%is%real', 181011003, 'J-P', 'IN TRANSIT', '2018-10-11', '0000-00-00', 0, 'joel%quilantag', 'SUBM'),
-(118, 'pussy%is%real', 181011004, 'J-P', 'IN TRANSIT', '2018-10-11', '0000-00-00', 0, 'joel%quilantag', 'SUBM'),
-(119, 'pussy%is%real', 181011005, 'J-P', 'IN TRANSIT', '2018-10-11', '0000-00-00', 0, 'joel%quilantag', 'SUBM'),
-(120, 'pussy%is%real', 181011006, 'J-P', 'IN TRANSIT', '2018-10-11', '0000-00-00', 0, 'joel%quilantag', 'SUBM'),
-(121, 'SALARY CLAIM', 181011007, 'L-SC', 'IN TRANSIT', '2018-10-11', '0000-00-00', 0, 'LIMASAWA', 'SUBM'),
+(121, 'SALARY CLAIM', 181011007, 'L-SC', 'CANCELLED', '2018-10-11', '2018-11-07', 0, 'LIMASAWA', 'SUBM'),
 (122, 'SALARY CLAIM3', 181011008, 'HI-SC', 'IN TRANSIT', '2018-10-11', '0000-00-00', 0, 'HINUNANGAN I', 'COMM'),
 (123, 'SALARY CLAIM', 181011009, 'A-SC', 'IN TRANSIT', '2018-10-11', '0000-00-00', 0, 'ANAHAWAN', 'COMM'),
 (124, 'SALARY CLAIM', 181011010, 'A-SC', 'IN TRANSIT', '2018-10-11', '0000-00-00', 0, 'ANAHAWAN', 'RQST'),
 (125, 'SALARY CLAIM', 181011011, 'A-SC', 'IN TRANSIT', '2018-10-11', '0000-00-00', 0, 'ANAHAWAN', 'PROC'),
 (126, 'SALARY CLAIM', 181011012, 'A-SC', 'IN TRANSIT', '2018-10-11', '0000-00-00', 0, 'ANAHAWAN', 'SUBM'),
 (127, 'SALARY CLAIM', 181011013, 'A-SC', 'IN TRANSIT', '2018-10-11', '0000-00-00', 0, 'ANAHAWAN', 'COMM'),
-(128, 'PUSSY%IS%REAL', 181011014, 'J-P', 'IN TRANSIT', '2018-10-11', '0000-00-00', 0, 'JOEL%QUILANTAG', 'PROC'),
-(129, 'PUSSY%IS%REAL', 181011015, 'J-P', 'IN TRANSIT', '2018-10-11', '0000-00-00', 0, 'JOEL%QUILANTAG', 'PROC'),
-(130, 'PUSSY%IS%REAL', 181011016, 'J-P', 'WAITING', '2018-10-11', '0000-00-00', 0, 'JOEL%QUILANTAG', 'PROC'),
-(131, 'PUSSY%IS%REAL', 181011017, 'J-P', 'WAITING', '2018-10-11', '0000-00-00', 0, 'JOEL%QUILANTAG', 'PROC'),
 (132, '234324', 181011018, '-2', 'WAITING', '2018-10-11', '0000-00-00', 0, '', 'SUBM'),
 (133, '234324', 181011019, 'BI-2', 'WAITING', '2018-10-11', '0000-00-00', 0, 'BONTOC I', 'SUBM'),
 (134, 'FFESFE', 181011020, 'S-F', 'WAITING', '2018-10-11', '0000-00-00', 0, 'SCHOOL2', 'PROC'),
 (135, 'FSDFSDFS', 181011021, 'S-F', 'WAITING', '2018-10-11', '0000-00-00', 0, 'SCHOOL2', 'SUBM'),
 (136, '324', 181012001, 'S-3', 'WAITING', '2018-10-12', '0000-00-00', 0, 'SCHOOL3', 'SUBM'),
 (137, 'JOERE OERERE EFGRDGR LFESFEEF', 181013001, 'BI-JOEL', 'WAITING', '2018-10-13', '0000-00-00', 0, 'BONTOC I', 'COMM'),
-(138, 'PUSSY%IS%REAL', 181013002, 'J-P', 'WAITING', '2018-10-13', '0000-00-00', 0, 'JOEL%QUILANTAG', 'PROC'),
-(139, 'PUSSY%IS%REAL', 181013003, 'J-P', 'WAITING', '2018-10-13', '0000-00-00', 0, 'JOEL%QUILANTAG', 'PROC'),
-(140, 'PUSSY%IS%REAL', 181013004, 'J-P', 'IN TRANSIT', '2018-10-13', '0000-00-00', 0, 'JOEL%QUILANTAG', 'PROC'),
 (141, 'JFESFE OERFSEFR EFRSFRS LFESFEFES', 181013005, 'BI-JOEL', 'CANCELLED', '2018-10-13', '2018-11-01', 0, 'BONTOC I', 'SUBM'),
 (142, 'T E S T I N G', 181021001, 'ART-TESTING', 'COMPLETED', '2018-10-21', '2018-10-21', 0, 'A R T', 'SUBM'),
 (143, 'AAA', 181031001, 'A-A', 'IN TRANSIT', '2018-10-31', '0000-00-00', 0, 'AAA', 'SUBM'),
@@ -165,10 +165,13 @@ INSERT INTO `documents` (`doc_id`, `doc_name`, `doc_trackingnum`, `doc_code`, `d
 (146, 'D', 181031004, 'D-D', 'WAITING', '2018-10-31', '0000-00-00', 0, 'D', 'COMM'),
 (147, 'FESFES', 181031005, 'N-F', 'WAITING', '2018-10-31', '0000-00-00', 0, 'NO', 'RQST'),
 (148, 'FESF', 181031006, 'D-F', 'COMPLETED', '2018-10-31', '2018-11-01', 0, 'DW', 'PROC'),
-(149, 'V A L E R I E A N N', 181031007, 'WILOI-VALERIEANN', 'COMPLETED', '2018-10-31', '2018-10-31', 1, 'W I L O I', 'PROC'),
-(150, 'THE SMELLY PUSSY OF NONOT', 181031008, 'DOIALG-TSPON', 'COMPLETED', '2018-10-31', '2018-10-31', 1, 'DEPARTMENT OF INTERIOR AND LOCAL GOVERNMENT', 'COMM'),
 (151, 'SCHOOL FORM 7', 181101001, 'S-SF7', 'WAITING', '2018-11-01', '0000-00-00', 1, 'SCHOOL2', 'SUBM'),
-(152, 'A Ã± Ã‘ DS', 181104001, 'BI-AÃÃD', 'WAITING', '2018-11-04', '0000-00-00', 1, 'BONTOC I', 'PROC');
+(152, 'A Ã± Ã‘ DS', 181104001, 'BI-AÃÃD', 'WAITING', '2018-11-04', '0000-00-00', 1, 'BONTOC I', 'PROC'),
+(153, 'THIS IS IT', 181105001, 'HW-TII', 'WAITING', '2018-11-05', '0000-00-00', 1, 'HINUNANGAN WCS', 'PROC'),
+(154, 'SCHOOL FORM 7', 181105002, 'SNN-SF7', 'WAITING', '2018-11-05', '0000-00-00', 1, 'STO. NIÃ±O NHS', 'SUBM'),
+(155, 'NOVEMBER 2018 MOOE', 181105003, 'AE-N2M', 'WAITING', '2018-11-05', '0000-00-00', 1, 'AMBAO ES', 'PROC'),
+(156, 'MEMORANDUM OF AGREEMENT (AUTOMOTIVE-OJT)', 181106001, 'LT-MOA(', 'CANCELLED', '2018-11-06', '2018-11-06', 31, 'LEONIZA TRIGO', 'SUBM'),
+(158, 'BUNNY', 181107001, 'SJ-B', 'WAITING', '2018-11-07', '0000-00-00', 6, 'SAN JUAN', 'RQST');
 
 -- --------------------------------------------------------
 
@@ -206,7 +209,7 @@ INSERT INTO `documents_history` (`dochist_id`, `doc_id`, `dochist_type`, `user_i
 (21, 3, 'FORWARD CANCELLED AT', 1, 2, '', '2018-09-20 11:48:50', 0),
 (23, 3, 'RECEIVED AT', 1, 2, '', '2018-09-20 11:48:20', 0),
 (24, 3, 'FORWARDED TO', 4, 1, '', '2018-09-20 11:48:32', 0),
-(25, 3, 'FORWARDED TO', 1, 3, '', '2018-09-20 11:48:26', 1),
+(25, 3, 'FORWARDED TO', 1, 3, '', '2018-09-20 11:48:26', 0),
 (26, 5, 'FORWARD CANCELLED AT', 1, 44, '', '2018-09-20 05:44:59', 1),
 (27, 3, 'RECEIVED AT', 2, 3, '', '2018-09-20 11:48:29', 0),
 (28, 3, 'FORWARDED TO', 4, 2, '', '2018-09-20 11:48:34', 0),
@@ -274,7 +277,7 @@ INSERT INTO `documents_history` (`dochist_id`, `doc_id`, `dochist_type`, `user_i
 (90, 116, 'FORWARDED TO', 1, 64, '', '2018-10-13 07:57:13', 1),
 (91, 115, 'FORWARDED TO', 1, 64, '', '2018-10-13 07:57:13', 1),
 (92, 141, 'FORWARDED TO', 1, 5, '', '2018-10-13 07:57:38', 0),
-(93, 121, 'FORWARDED TO', 1, 64, '', '2018-10-13 08:00:37', 1),
+(93, 121, 'FORWARDED TO', 1, 64, '', '2018-10-13 08:00:37', 0),
 (94, 142, 'RECEIVED AT', 1, 64, '', '2018-10-21 08:31:41', 0),
 (95, 142, 'FORWARDED TO', 1, 64, '', '2018-10-21 08:32:14', 0),
 (96, 142, 'RECEIVED AT', 1, 64, '', '2018-10-21 08:37:05', 0),
@@ -309,7 +312,22 @@ INSERT INTO `documents_history` (`dochist_id`, `doc_id`, `dochist_type`, `user_i
 (125, 122, 'REMARKS ADDED AT', 1, 64, 'YOU IDIOT, TOO!.', '2018-11-01 07:35:14', 0),
 (126, 148, 'MARKED COMPLETED AT', 1, 64, '', '2018-11-01 07:48:16', 0),
 (127, 141, 'DOCUMENT CANCELLED AT', 1, 64, '', '2018-11-01 07:48:20', 0),
-(128, 152, 'RECEIVED AT', 1, 64, '', '2018-11-04 13:55:39', 1);
+(128, 152, 'RECEIVED AT', 1, 64, '', '2018-11-04 13:55:39', 1),
+(129, 153, 'RECEIVED AT', 1, 64, '', '2018-11-05 00:06:53', 1),
+(130, 154, 'RECEIVED AT', 1, 64, '', '2018-11-05 00:55:36', 1),
+(131, 155, 'RECEIVED AT', 1, 64, '', '2018-11-05 00:58:55', 1),
+(132, 156, 'RECEIVED AT', 31, 65, '', '2018-11-06 03:03:39', 0),
+(133, 156, 'REMARKS ADDED AT', 31, 65, 'BITCH IS PRESENT', '2018-11-06 03:08:17', 0),
+(134, 156, 'FORWARDED TO', 31, 5, '', '2018-11-06 03:08:37', 0),
+(135, 156, 'FORWARD CANCELLED AT', 31, 65, '', '2018-11-06 03:08:51', 0),
+(136, 156, 'DOCUMENT CANCELLED AT', 31, 65, '', '2018-11-06 03:09:19', 0),
+(137, 157, 'RECEIVED AT', 1, 64, '', '2018-11-06 08:08:36', 0),
+(138, 157, 'FORWARDED TO', 1, 5, '', '2018-11-06 08:09:07', 1),
+(139, 121, 'RECEIVED AT', 6, 64, '', '2018-11-07 06:50:27', 0),
+(140, 121, 'FORWARDED TO', 6, 65, '', '2018-11-07 06:50:43', 0),
+(141, 121, 'FORWARD CANCELLED AT', 6, 64, '', '2018-11-07 06:50:58', 0),
+(142, 121, 'DOCUMENT CANCELLED AT', 6, 64, '', '2018-11-07 06:51:05', 0),
+(143, 158, 'RECEIVED AT', 6, 64, '', '2018-11-07 06:52:25', 1);
 
 -- --------------------------------------------------------
 
@@ -695,24 +713,54 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `first_name`, `last_name`, `user_abbreviation`, `dept_id`, `password`, `personnel_id`, `usertype`) VALUES
-(1, 'joelqui', 'JOEL', 'QUILANTANG', 'J QUILANTANG', 64, 'seahorse', 1, 'admin'),
-(2, 'b', 'MARY EDALINE', 'PEREZ', 'ME PEREZ', 2, 'deped4ever', 2, 'mgmt'),
-(3, 'c', 'YDEN EARL', 'BILLONES', 'YE BILLONES', 3, 'deped4ever', 3, 'user'),
-(4, 'd', 'CATHERINE', 'DESTAJO', 'C DESTAJO', 6, 'deped4ever', 4, 'guest'),
-(5, 'd', 'DENNIS ANTONY EMMANUEL', 'CARBONILLA', 'DAE CARBONILLA', 7, 'deped4ever', 4, 'guest'),
-(6, 'e', 'HILDA', 'FERNANDEZ', 'H FERNANDEZ', 64, 'deped4ever', 5, 'user'),
-(7, 'e', 'GENIS', 'MURALLOS', 'G MURALLOS', 5, 'deped4ever', 5, ''),
-(17, 'babylion', 'LEON', 'TRIGZ', 'L TRIGZ', 1, 'deped4ever', 2, 'mgmt'),
-(18, 'cpeguana', 'CHRISLEE PHIL', 'EGUANA', 'CP EGUANA', 2, 'deped4ever', 1, 'mgmt'),
-(21, 'qtialim', 'QUEENNIE', 'TIA', 'Q TIA', 2, 'deped4ever', 1, 'mgmt'),
-(25, 'qtialim', 'QUEENNIE', 'TIA', 'Q TIA', 2, 'deped4ever', 1, 'mgmt'),
-(26, 'qtialim', 'QUEENNIE', 'TIA', 'Q TIA', 2, 'deped4ever', 1, 'mgmt'),
-(27, 'qtialim', 'QUEENNIE', 'TIA', 'Q TIA', 2, 'deped4ever', 1, 'mgmt'),
-(28, 'qtialim', 'QUEENNIE', 'TIA', 'Q TIA', 2, 'deped4ever', 1, 'mgmt'),
-(29, 'zzz', 'ZZZ', 'ZZZ', 'Z ZZZ', 65, 'deped4ever', 0, 'mgmt'),
-(30, 'joquilz', 'JOEL', 'KEE', 'J KEE', 5, 'deped4ever', 0, 'mgmt'),
-(31, '1', '3', '4', '3 4', 6, 'deped4ever', 0, ''),
-(32, 'jaecyda', 'JAE', 'CYDA', 'J CYDA', 5, 'deped4ever', 0, 'guest');
+(33, 'queennie.tia', 'QUEENNIE', 'TIA', 'Q TIA', 0, 'wilson', 0, 'admin'),
+(34, 'agnes', 'AGNES', 'GONZALES', 'A GONZALES', 80, 'deped4ever', 0, 'user'),
+(35, 'edaline', 'EDALINE', 'MORI', 'E MORI', 80, 'deped4ever', 0, 'mgmt'),
+(36, 'aidajune', 'AIDA JUNE', 'OLAYVAR', 'AJ OLAYVAR', 81, 'deped4ever', 0, 'mgmt'),
+(37, 'aireen ', 'AIREEN', 'ERASMO', 'A ERASMO', 86, 'deped4ever', 0, 'user'),
+(38, 'alfredo', 'ALFREDO', 'BAYON', 'A BAYON', 85, 'deped4ever', 0, 'mgmt'),
+(39, 'arlita', 'ARLITA', 'ISMA', 'A ISMA', 85, 'deped4ever', 0, 'user'),
+(40, 'arben', 'ARBEN', 'RESUS', 'A RESUS', 75, 'deped4ever', 0, 'user'),
+(41, 'betelino', 'BETELINO', 'AMIGO', 'B AMIGO', 67, 'deped4ever', 0, 'mgmt'),
+(42, 'carmela', 'CARMELA', 'GAVIOLA', 'C GAVIOLA', 80, 'deped4ever', 0, 'mgmt'),
+(43, 'cathy', 'CATHY', 'DESTAJO', 'C DESTAJO', 73, 'deped4ever', 0, 'user'),
+(44, 'bob', 'BOB', 'CORRO', 'B CORRO', 84, 'deped4ever', 0, 'user'),
+(45, 'cheche', 'CHECHE', 'RANQUE', 'C RANQUE', 72, 'deped4ever', 0, 'user'),
+(46, 'samson', 'SAMSON', 'CLARUS', 'S CLARUS', 87, 'deped4ever', 0, 'mgmt'),
+(47, 'consolacion', 'CONSOLACION', 'RUFLO', 'C RUFLO', 84, 'deped4ever', 0, 'mgmt'),
+(48, 'dec', 'DEC', 'CARBONILLA', 'D CARBONILLA', 66, 'deped4ever', 0, 'mgmt'),
+(49, 'eduardo', 'EDUARDO', 'LEGANTIN', 'E LEGANTIN', 69, 'deped4ever', 0, 'mgmt'),
+(50, 'elena', 'ELENA', 'DE LUNA', 'E DE LUNA', 74, 'deped4evre', 0, 'mgmt'),
+(51, 'elizabeth', 'ELIZABETH', 'DELIGERO', 'E DELIGERO', 66, 'deped4ever', 0, 'mgmt'),
+(52, 'elsiejane', 'ELSIE JANE', 'MANTILLA', 'EJ MANTILLA', 82, 'deped4ever', 0, 'mgmt'),
+(53, 'fe', 'FE', 'ESPEDILLA', 'F ESPEDILLA', 86, 'deped4ever', 0, 'mgmt'),
+(54, 'genis', 'GENIS', 'MURALLOS', 'G MURALLOS', 79, 'deped4ever', 0, 'mgmt'),
+(55, 'hilda', 'HILDA', 'FERNANDEZ', 'H FERNANDEZ', 82, 'deped4ever', 0, 'user'),
+(56, 'ihrein', 'IHREIN', 'CADAVERO', 'I CADAVERO', 76, 'deped4ever', 0, 'user'),
+(57, 'jenelyn', 'JENELYN', 'INTING', 'J INTING', 81, 'deped4ever', 0, 'user'),
+(58, 'jerelyn', 'JERELYN', 'AMIGO', 'J AMIGO', 83, 'deped4ever', 0, 'user'),
+(59, 'joan', 'JOAN', 'MALASAGA', 'J MALASAGA', 76, 'deped4ever', 0, 'mgmt'),
+(60, 'joel', 'JOEL', 'QUILANTANG', 'J QUILANTANG', 77, 'deped4ever', 0, 'admin'),
+(61, 'julie', 'JULIE', 'AUSTRIA', 'J AUSTRIA', 69, 'deped4ever', 0, 'user'),
+(62, 'liza', 'LIZA', 'DEMETRIO', 'L DEMETRIO', 70, 'deped4ever', 0, 'mgmt'),
+(63, 'lloyd', 'LLOYD', 'CARBONILLA', 'L CARBONILLA', 67, 'deped4ever', 0, 'mgmt'),
+(64, 'min', 'MIN', 'DAYOLA', 'M DAYOLA', 71, 'deped4ever', 0, 'user'),
+(65, 'lorlin', 'LORLIN', 'MALBAS', 'L MALBAS', 86, 'deped4ever', 0, 'mgmt'),
+(66, 'lyma', 'LYMA', 'MAITEM', 'L MAITEM', 75, 'deped4ever', 0, 'mgmt'),
+(67, 'miraluna', 'MIRALUNA', 'CLIMACO', 'M CLIMACO', 68, 'deped4ever', 0, 'mgmt'),
+(68, 'lyna', 'LYNA', 'GAYAS', 'L GAYAS', 87, 'deped4ever', 0, 'mgmt'),
+(69, 'Ramir', 'RAMIR', 'MARAON', 'R MARAON', 73, '181106001', 0, 'mgmt'),
+(70, 'malou.binongo', 'MALOU', 'BINONGO', 'M BINONGO', 70, 'deped4evre', 0, 'user'),
+(71, 'rea', 'SIBI', 'REA', 'S REA', 66, '181106001', 0, 'user'),
+(72, 'malou.alvarez', 'MALOU', 'ALVAREZ', 'M ALVAREZ', 71, 'deped4ever', 0, 'mgmt'),
+(73, 'reynaldo', 'REYNALDO', 'BADILLA', 'R BADILLA', 78, '181106001', 0, 'mgmt'),
+(74, 'marichu', 'MARICHU', 'SABALO', 'M SABALO', 79, 'deped4ever', 0, 'mgmt'),
+(75, 'rosabel', 'ROSABEL', 'MATACOT', 'R MATACOT', 74, '181106001', 0, 'user'),
+(76, 'martin', 'MARTIN', 'BAYBAY', 'M BAYBAY', 78, 'deped4ever', 0, 'user'),
+(77, 'ulysses', 'ULYSSES', 'SABANDAL', 'U SABANDAL', 72, '181106001', 0, 'mgmt'),
+(78, 'cipriano', 'CIPRIANO', 'MIKIN', 'C MIKIN', 87, 'deped4evere', 0, 'mgmt'),
+(79, 'yden earl', 'YDEN EARL', 'BILLONES', 'YE BILLONES', 79, '181106001', 0, 'mgmt'),
+(80, 'zedrick', 'ZEDRICK', 'MALBAS', 'Z MALBAS', 83, 'deped4ever', 0, 'mgmt');
 
 --
 -- Indexes for dumped tables
@@ -762,7 +810,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `departments`
 --
 ALTER TABLE `departments`
-  MODIFY `dept_id` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `dept_id` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- AUTO_INCREMENT for table `districts`
@@ -774,13 +822,13 @@ ALTER TABLE `districts`
 -- AUTO_INCREMENT for table `documents`
 --
 ALTER TABLE `documents`
-  MODIFY `doc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
+  MODIFY `doc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=159;
 
 --
 -- AUTO_INCREMENT for table `documents_history`
 --
 ALTER TABLE `documents_history`
-  MODIFY `dochist_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=129;
+  MODIFY `dochist_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=144;
 
 --
 -- AUTO_INCREMENT for table `schools`
@@ -792,7 +840,7 @@ ALTER TABLE `schools`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

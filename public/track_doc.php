@@ -64,15 +64,14 @@ if(!isset($_SESSION['usertype'])) {
                     <h4 style="color:rgb(134,142,150);">Track Document</h4>
                 </div>
             </div>
-            
+            <form >   
             <div class="row" style="padding:0px;margin:7px;height:14px;">
                 <div class="col-auto" style="height:33px;width:165px;">
-                
-                <input type="text" placeholder="Input Tracking Number" id="inputTracking" style="width:146px;height:25px;font-size:12px;">
+                <input type="text" placeholder="Input Tracking Number" name="tracking" value="<?php if(isset($_GET['tracking']))echo $_GET['tracking']; ?>"id="inputTracking" style="width:146px;height:25px;font-size:12px;">
                 </div>
-                <div class="col"><button class="btn btn-success btn-sm" type="submit" id="search" style="height:23px;padding:0px 0px;font-size:10px;margin:0px -15px;width:45px;">Search&nbsp;</button></div>
+                <div class="col"><button class="btn btn-success btn-sm" type="submit" id="search" data-tracking="<?php if(isset($_GET['tracking']))echo $_GET['tracking']; ?>" style="height:23px;padding:0px 0px;font-size:10px;margin:0px -15px;width:45px;">Search&nbsp;</button></div>
             </div>
-            
+            </form>
             <div class="row no-gutters" style="width:1100px;height:465px;">
                 <div class="col-auto visible" style="margin:19px;width:1055px;">
                     <div class="table-responsive visible" style="font-size:12px;background-color:#ffffff;margin:0px;padding:0px;width:1043px;height:418px;">

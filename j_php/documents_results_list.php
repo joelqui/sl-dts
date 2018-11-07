@@ -4,6 +4,7 @@ require_once("../includes/initialize.php");
 
 global $database;
 
+$searchTerm = $_GET['search'];
 $docStatus = $_GET['docstatus'];
 if($docStatus == null)
     $docStatus=0; 
@@ -13,7 +14,7 @@ $page = $_GET['page'];
 $per_page = 10;
 
 
-$total_count = Document::count_all_same_doc_status($docStatus);
+$total_count = Document::count_all_same_doc_status($docStatus,$searchTerm);
 //echo $total_count;
 
 //echo $dept;
@@ -24,9 +25,16 @@ $sql = "SELECT documents.doc_id,doc_trackingnum,doc_name,doc_owner,doc_status,";
 $sql .= "TIMESTAMPDIFF(DAY,documents_history.timestamp,NOW()) AS queue ";
 $sql .= "from documents ";
 $sql .= "LEFT JOIN documents_history ON documents.doc_id = documents_history.doc_id AND documents_history.is_last = 1 ";
-if($docStatus != 0){
+if($docStatus != 0 && strlen($searchTerm)<5){
     $sql .= "WHERE doc_status = {$docStatus} ";
 }
+else if($docStatus != 0 && strlen($searchTerm)>4) {
+    $sql .= "WHERE doc_status = {$docStatus} AND (doc_trackingnum LIKE '%$searchTerm%' OR doc_name LIKE '%$searchTerm%' OR doc_owner LIKE '%$searchTerm%') ";
+}
+else if(strlen($searchTerm)>4){
+    $sql .= "WHERE doc_trackingnum LIKE '%$searchTerm%' OR doc_name LIKE '%$searchTerm%' OR doc_owner LIKE '%$searchTerm%' ";
+}
+
    
 $sql .= "ORDER BY doc_trackingnum DESC ";
 $sql .= "LIMIT {$per_page} ";
@@ -59,7 +67,7 @@ $htmlContent4 = '';
 $htmlContent5 = '</ul></nav></div>';
 
 if(empty($object_array)) {
-    echo 'No Shit!';
+   // echo 'No Shit!';
 }
 else {
     foreach($object_array as $doc) {

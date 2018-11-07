@@ -1,13 +1,14 @@
 $(document).ready(function () {
-    
-  //  $("#search")
-   // getDocHist(115);
-    $("#search").click(function() {
-        var tracking=$("#inputTracking").val();
-        getDocHist(tracking);
-      });
+   var tracking = $('#search').data('tracking');
 
+   //condition if no tracking number has been provided
+   if(tracking != ""){
+     getDocHist(tracking);
+   }  
+        
+        
 
+   
 });
 
 //user-defined functions
