@@ -9,7 +9,7 @@ $shortened_remarks=$remarks;
 if($flag == 1){
     //sample notification for remarks
     $s = new SMSNotification();
-   // $s->doc_mobilenum = 639175610034;
+    $s->doc_mobilenum = $doc->doc_mobilenum;
     $s->doc_trackingnum = $doc->doc_trackingnum;
     $s->notify_remarks($shortened_remarks);
 

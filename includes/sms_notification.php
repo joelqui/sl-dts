@@ -4,7 +4,7 @@ require_once('database.php');
 
 class SMSNotification {
     public $doc_trackingnum;
-    public $doc_mobilenum=639178781281;
+    public $doc_mobilenum=639989720348;
     public $curent_dept;
     private $counter=0;
 
@@ -76,7 +76,7 @@ class SMSNotification {
     }
 
     private function send_basic() {
-        $msg = '***This is a system-generated SMS. Please do not reply to this msg. U may call the office,(053)570-8933 or email, southernleyte.division@deped.gov.ph.';
+        $msg = '***This is a system-generated SMS. Please do not reply to this message. You may contact the office at 570-8933/ southernleyte.division@deped.gov.ph.***';
         return $this->send($msg);
     }
 

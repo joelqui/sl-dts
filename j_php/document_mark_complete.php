@@ -8,7 +8,7 @@ $flag = $doc->mark_completed();
 if($flag == 3) {
     //sample notification for completed
     $s = new SMSNotification();
-    //$s->doc_mobilenum = 639175610034;
+    $s->doc_mobilenum = $doc->doc_mobilenum;
     $s->doc_trackingnum = $doc->doc_trackingnum;
     $s->notify_completed();
     

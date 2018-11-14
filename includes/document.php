@@ -5,11 +5,12 @@ class Document extends DatabaseObject {
 
     protected static $primary_key = "doc_id";
     protected static $table_name="documents";
-    protected static $db_fields = array('doc_id','doc_name','doc_trackingnum','doc_code',
+    protected static $db_fields = array('doc_id','doc_name','doc_trackingnum','doc_mobilenum','doc_code',
     'doc_status','date_started','date_completed','personnel_id','doc_owner','doc_type');
     public $doc_id;
     public $doc_name;
     public $doc_trackingnum=0;
+    public $doc_mobilenum;
     public $doc_code;
     public $doc_status;
     public $date_started;

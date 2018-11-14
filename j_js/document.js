@@ -7,7 +7,7 @@ $("input,select").val("");
 //event listener for entry validation
 $("body").on( "change keyup", "select,input",function() {
     //condition to check if main inputs are present
-    if(($.trim($("#docName").val()) != "") && ($.trim($("#docType").val()) != "") && ($.trim($("#docOwnerType").val()) != "")){
+    if(($.trim($("#docName").val()) != "") && ($.trim($("#docType").val()) != "") && ($.trim($("#docOwnerType").val()) != "") && ($("#contactNum").val()>9000000000) && ($("#contactNum").val()<9999999999) ){
         //doc owner is district
         if(($("#docOwnerType").val() == 1) && ($("#district").val() != null )){
             $("#addDoc").removeAttr("disabled");
@@ -104,6 +104,7 @@ function addDoc(docowner){
     $.get("../j_php/document_add.php",{
         docname: $("#docName").val(),
         docowner: docowner,
+        mobilenum: parseInt($("#contactNum").val()),
         doctype: $("#docType").val()
         }, 
         function(data){
