@@ -88,15 +88,15 @@ class Document extends DatabaseObject {
         $this->generate_trackingnum();
         $this->generate_code();
         $this->date_started=date('Y-m-d');
-        $this->create();
+        $x=$this->create();
 
         $new_doc_hist = new DocumentHistory;
         $new_doc_hist->doc_id = $this->doc_id;
         $new_doc_hist->user_id = $_SESSION['user_id'];
         $new_doc_hist->dept_id = $_SESSION['dept_id'];
         $new_doc_hist->dochist_type = 1;    
-        $new_doc_hist->create();
-
+        $y=$new_doc_hist->create();
+        return $x+$y;
         
     }
 

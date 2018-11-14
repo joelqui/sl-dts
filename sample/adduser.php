@@ -1,44 +1,42 @@
 <?php
 require_once("../includes/initialize.php");
-
+//sample notification for cancelled
 /*
-$user = User::find_by_id(1);
-$user->dept_id=11;
-$user->update();
-$user = User::find_by_id(2);
-$user->dept_id=22;
-$user->update();
-$user = User::find_by_id(3);
-$user->dept_id=33;
-$user->update();
-$user = User::find_by_id(4);
-$user->dept_id=44;
-$user->update();
-$user = User::find_by_id(5);
-$user->dept_id=55;
-$user->update();
-$user = User::find_by_id(6);
-$user->dept_id=66;
-$user->update();
+$s = new SMSNotification();
+echo $s->current_dept;
+$s->doc_mobilenum = '63'.'9173193264';
+$s->doc_trackingnum = 696969696;
+echo $s->notify_cancelled();
+*/
 
-//echo $user->usertype;
-//$user->delete();
+//sample notification for completed
+/*
+$s = new SMSNotification();
+echo $s->current_dept;
+$s->doc_mobilenum = '63'.'9173193264';
+$s->doc_trackingnum = 696969696;
+echo $s->notify_completed();
+*/
 
-$users = User::find_all();
+//sample notification for received
+/*
+$s = new SMSNotification();
+echo $s->current_dept;
+$s->doc_mobilenum = 639175610034;
+$s->doc_trackingnum = 696969696;
+echo $s->notify_received();
+*/
 
-foreach($users as $user) {
-echo "User: ".$user->username."<br />";
-echo "Name: ".$user->full_name()."<br /><br />";
-}*/
+//sample notification for remarks
 
-$personnel = new User();
-$personnel->username = "qtialim";
-$personnel->password = "toyadwadiks";
-$personnel->first_name = "queennie";
-$personnel->last_name = "tia";
-$personnel->usertype = 2;
-$personnel->dept_id = 2;
-$personnel->personnel_id = 1;
-$personnel->add();
+$s = new SMSNotification();
+
+$s->doc_mobilenum = 639175610034;
+$s->doc_trackingnum = 181114005;
+$remarks = "You can't sing the same old romance when there's no more pain";
+echo $s->notify_remarks($remarks);
+
+
+
 
 ?>
