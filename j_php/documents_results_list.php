@@ -12,7 +12,7 @@ if($docStatus == null)
 $page = $_GET['page'];
 //$page = 1;
 $per_page = 10;
-
+  
 
 $total_count = Document::count_all_same_doc_status($docStatus,$searchTerm);
 //echo $total_count;
@@ -25,13 +25,13 @@ $sql = "SELECT documents.doc_id,doc_trackingnum,doc_name,doc_owner,doc_status,";
 $sql .= "TIMESTAMPDIFF(DAY,documents_history.timestamp,NOW()) AS queue ";
 $sql .= "from documents ";
 $sql .= "LEFT JOIN documents_history ON documents.doc_id = documents_history.doc_id AND documents_history.is_last = 1 ";
-if($docStatus != 0 && strlen($searchTerm)<5){
+if($docStatus != 0 && strlen($searchTerm)<3){
     $sql .= "WHERE doc_status = {$docStatus} ";
 }
-else if($docStatus != 0 && strlen($searchTerm)>4) {
+else if($docStatus != 0 && strlen($searchTerm)>2) {
     $sql .= "WHERE doc_status = {$docStatus} AND (doc_trackingnum LIKE '%$searchTerm%' OR doc_name LIKE '%$searchTerm%' OR doc_owner LIKE '%$searchTerm%') ";
 }
-else if(strlen($searchTerm)>4){
+else if(strlen($searchTerm)>2){
     $sql .= "WHERE doc_trackingnum LIKE '%$searchTerm%' OR doc_name LIKE '%$searchTerm%' OR doc_owner LIKE '%$searchTerm%' ";
 }
 

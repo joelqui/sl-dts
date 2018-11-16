@@ -82,15 +82,18 @@ if(!isset($_SESSION['usertype'])) {
                             <div class="form-row">
                                 <div class="col"><label class="col-form-label" style="font-size:15px;">Document Owner Type:</label><select class="form-control" id="docOwnerType" style="height:30px;width:165px;font-size:14px;padding:4px;"><optgroup label="docownertype"><option value="1">District</option><option value="2">School</option><option value="3">Individual</option><option value="4">Other</option></optgroup></select></div>
                             </div>
-                            <div class="form-row">
-                                <div class="col"><label class="col-form-label" style="font-size:15px;">Contact Number</label><input class="form-control" type="number" required="" maxlength="10" minlength="10" inputmode="numeric" id="contactNum" style="width:216px;height:30px;font-size:14px;"></div>
-                            </div>
+                            
                             <div class="form-row" style="width:922px;padding:6px;font-size:15px;">
                                 <div class="col-2 visible" id="districtOwner" style="width:149px;padding:0px;height:66px; "><label class="col-form-label">District:</label><select class="form-control" id="district" style="height:30px;width:145px;font-size:14px;padding:4px;"><optgroup label="Districts"></optgroup></select></div>
                                 <div class="col-3" id="schoolOwner"><label class="col-form-label">School:</label><select class="form-control" id="school" style="height:30px;width:215px;font-size:14px;padding:4px;"></select></div>
                                 <div class="col-3" id="individualOwner"><label class="col-form-label">Individual:</label><input class="form-control" type="text" id="individual" style="width:216px;height:30px;font-size:14px;"></div>
                                 <div class="col-3" id="otherOwner"><label class="col-form-label">Other:</label><input class="form-control" type="text" id="other" style="width:216px;height:30px;font-size:14px;"></div>
                             </div>
+
+                            <div class="form-row">
+                                <div class="col"><label class="col-form-label" style="font-size:15px;">Contact Number</label><input class="form-control" type="number" required="" maxlength="10" minlength="10" inputmode="numeric" id="contactNum" style="width:216px;height:30px;font-size:14px;"></div>
+                            </div>
+                            
                         </div>
                     </form>
                 </div>

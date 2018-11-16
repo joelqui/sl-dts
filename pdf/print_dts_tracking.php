@@ -12,6 +12,7 @@ $dts_timestamp=$doc->date_started;
 $dts_tracking=$doc->doc_trackingnum;
 $dts_docname=$doc->doc_name;
 $dts_docowner=$doc->doc_owner;
+$dts_docownermobile='0'.substr($doc->doc_mobilenum,2);
 $dts_docreceiver=$user->full_name();
 
 // create new PDF document
@@ -71,7 +72,7 @@ $html = '<table border="1" cellspacing="3" cellpadding="4"><tr>
 <tr><td style="width:18%;height:30px">Date Received:</td><td style="width:30%">'.$dts_timestamp.'</td><td style="width:4%"></td><td style="width:18%">Date Received:</td><td style="width:30%">'.$dts_timestamp.'</td></tr>
 <tr><td style="height:30px">Tracking Number:</td><td>'.$dts_tracking.'</td><td></td><td>Tracking Number:</td><td>'.$dts_tracking.'</td></tr>     
 <tr><td style="height:30px">Document Name:</td><td>'.$dts_docname.'</td><td></td><td>Document Name:</td><td>'.$dts_docname.'</td></tr> 
-<tr><td style="height:30px">Document Owner:</td><td>'.$dts_docowner.'</td><td></td><td>Document Owner:</td><td>'.$dts_docowner.'</td></tr>  
+<tr><td style="height:30px">Document Owner:</td><td>'.$dts_docowner.' / '.$dts_docownermobile.'</td><td></td><td>Document Owner:</td><td>'.$dts_docowner.' / '.$dts_docownermobile.'</td></tr>  
 <tr><td style="height:60px">Received By:</td><td>'.$dts_docreceiver.'</td><td></td><td>Received By:</td><td>'.$dts_docreceiver.'</td></tr>    
 <tr><td style="height:60px">Remarks:</td><td></td><td></td><td>Remarks:</td><td></td></tr></table>';
 

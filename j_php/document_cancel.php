@@ -11,6 +11,12 @@ if($flag == 3){
     $s->doc_mobilenum = $doc->doc_mobilenum;
     $s->doc_trackingnum = $doc->doc_trackingnum;
     $s->notify_cancelled();
+
+    //save log
+    $log = new logs();
+    $log->doc_trackingnum = $doc->doc_trackingnum;
+    $log->mark_cancelled();
+
     echo $flag;
 }
 

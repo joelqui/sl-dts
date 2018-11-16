@@ -12,6 +12,11 @@ if($flag == 3) {
     $s->doc_trackingnum = $doc->doc_trackingnum;
     $s->notify_completed();
     
+    //save log
+    $log = new logs();
+    $log->doc_trackingnum = $doc->doc_trackingnum;
+    $log->mark_completed();
+
     echo $flag;
 }
 

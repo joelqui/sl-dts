@@ -44,14 +44,14 @@ class Document extends DatabaseObject {
         global $database; 
         $sql = "SELECT COUNT(*) from documents "; 
         $sql .= "LEFT JOIN documents_history ON documents.doc_id = documents_history.doc_id AND documents_history.is_last = 1 ";
-        if($docStatus != 0 && strlen($searchTerm)<5){
+        if($docStatus != 0 && strlen($searchTerm)<3){
             $sql .= "WHERE doc_status = {$docStatus} ";
         }
-        else if($docStatus != 0 && strlen($searchTerm)>4) {
-            $sql .= "WHERE doc_status = {$docStatus} AND doc_trackingnum LIKE '$searchTerm%' OR doc_name LIKE '$searchTerm%' OR doc_owner LIKE '$searchTerm%' ";
+        else if($docStatus != 0 && strlen($searchTerm)>2) {
+            $sql .= "WHERE (doc_status = {$docStatus} AND (doc_trackingnum LIKE '$searchTerm%' OR doc_name LIKE '$searchTerm%' OR doc_owner LIKE '$searchTerm%')) ";
         }
-        else if(strlen($searchTerm)>4){
-            $sql .= "WHERE doc_trackingnum LIKE '$searchTerm%' OR doc_name LIKE '$searchTerm%' OR doc_owner LIKE '$searchTerm%' ";
+        else if(strlen($searchTerm)>2){
+            $sql .= "WHERE (doc_trackingnum LIKE '$searchTerm%' OR doc_name LIKE '$searchTerm%' OR doc_owner LIKE '$searchTerm%') ";
         }
         
         
@@ -71,10 +71,44 @@ class Document extends DatabaseObject {
     }
 
     public function generate_code() {
-        $this->doc_code = static::generate_acronym($this->doc_owner).'-'.static::generate_acronym($this->doc_name);
+        $this->doc_code = static::generate_acronym($this->doc_name).'-'.static::generate_acronym($this->doc_owner);
     }
 
     public static function generate_acronym($string) {
+        /*
+        $words = explode(" ",$string);
+        $acronym = "";
+
+        foreach ($words as $w) {
+        $acronym .= $w[0];
+        }
+        return strtoupper($acronym);*/
+        $words = explode(" ",$string);
+        $acronym = "";
+        $cnt=0;
+        if(count($words)>1){
+            foreach ($words as $w) {
+                $cnt++;
+                if($cnt<3){
+                    if(strlen($w)>3)
+                        $acronym .= $w[0].$w[1].$w[2];
+                    else 
+                        $acronym .= $w;
+                    }
+                if($cnt<2)
+                    $acronym .= "_";
+                }
+            }
+        else {
+            $acronym = substr($words[0], 0, 7);
+            }   
+
+        return strtoupper($acronym);
+
+    }
+
+    public static function generate_acronym_two($string) {
+        
         $words = explode(" ",$string);
         $acronym = "";
 
@@ -82,6 +116,7 @@ class Document extends DatabaseObject {
         $acronym .= $w[0];
         }
         return strtoupper($acronym);
+
     }
 
     public function add_document(){

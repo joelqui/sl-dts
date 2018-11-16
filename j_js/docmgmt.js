@@ -19,7 +19,7 @@ $(document).ready(function () {
     //event listener for search
     $("body").on( "keyup", "#doc_search",function() {
         console.log('shit');
-        if($("#doc_search").val().length > 4 || $("#doc_search").val().length == 0){
+        if($("#doc_search").val().length > 2 || $("#doc_search").val().length == 0){
             getDocList(1);
             console.log('yes');
         }
