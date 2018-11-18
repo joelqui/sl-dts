@@ -15,7 +15,16 @@ class logs {
     private function save($log) {
         
         $filename = 'sl.dts.movement.logs.'.date("Y-m",time()).'.log';
-        $file = 'c://xampp/htdocs/sl-dts/logs/'.$filename;
+        $file = 'c://xampp/htdocs/sl-dts/logs/doc-movement/'.$filename;
+        $handle = fopen($file, "a");
+        fwrite($handle,$log);
+        fclose($handle);
+    }
+
+    private static function sms_save($log) {
+        date_default_timezone_set("Asia/Manila");
+        $filename = 'sl.dts.sms.logs.'.date("Y-m-d",time()).'.log';
+        $file = 'c://xampp/htdocs/sl-dts/logs/sms-monitoring/'.$filename;
         $handle = fopen($file, "a");
         fwrite($handle,$log);
         fclose($handle);
@@ -74,6 +83,12 @@ class logs {
         
         $log = date("Y-m-d H:i:s", time()).": ".$this->username." marked document#".$this->doc_trackingnum." cancelled.\r";
         $this->save($log);
+    }
+
+    public static function sms($num) {
+        date_default_timezone_set("Asia/Manila");
+        $log = date("Y-m-d H:i:s", time()).": An sms was sent to ".$num.".\r";
+        static::sms_save($log);
     }
 
 }

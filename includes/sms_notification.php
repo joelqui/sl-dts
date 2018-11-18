@@ -16,9 +16,11 @@ class SMSNotification {
     private function send($message) {
         $this->counter++;
         $filename=date("Ymdhis",time());
-        $file = 'c://xampp/htdocs/sl-dts/sms_outgoing/'.$this->doc_trackingnum.$this->counter.'.sms';
+        $file = 'c://xampp/htdocs/sl-dts/sms_outgoing/'.$this->doc_trackingnum.'-'.$filename.'-'.$this->counter.'.sms';
         $content = "To: ".$this->doc_mobilenum."\n\n".$message." \n";
         $size = file_put_contents($file, $content);
+        //save log
+        logs::sms($this->doc_mobilenum);
         return isset($size) ? $size : false;
     }
 
@@ -53,7 +55,6 @@ class SMSNotification {
         $msg .= $this->current_dept;
         $msg .= '. You may follow up using this document tracking number.';
     
-        
         if($this->send($msg)){
             $this->send_basic();
             return true;

@@ -31,6 +31,7 @@ class Document extends DatabaseObject {
     }
     
     public static function daily_count() {
+        date_default_timezone_set("Asia/Manila");
         global $database;
         $sql = "SELECT COUNT(*) AS total_found FROM ";
         $sql .= static::$table_name." WHERE date_started = '".date('Y-m-d')."'";
@@ -61,6 +62,7 @@ class Document extends DatabaseObject {
     }
 
     public function generate_trackingnum() {
+    
         $num = self::daily_count() + 1;
         $str_length = 3;
 
