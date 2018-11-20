@@ -76,7 +76,10 @@ else {
                 $htmlContent2 .= '</td><td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">'.$doc["queue"];
                 if($doc["queue"] != NULL)
                     $htmlContent2 .= ' day/s';
-                $htmlContent2 .= '</td><td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">'.$doc["doc_owner"];
+                $htmlContent2 .= '</td><td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">';
+                
+                $htmlContent2 .= strlen($doc["doc_owner"])<31 ? $doc["doc_owner"] : substr($doc["doc_owner"],0,30)."...";
+
                 $htmlContent2 .= '</td><td class="align-middle" style="color:rgb(0,0,0);font-size:14px;">'.$doc["doc_status"];
                 $htmlContent2 .= '</td><td style="height:18px;"><button class="btn btn-success active btn-sm" type="button"';
                 $htmlContent2 .= 'style="height:20px;padding:0;font-size:10px;margin:0px 2px;width:90px;">Track Document';
