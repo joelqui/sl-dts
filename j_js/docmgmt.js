@@ -34,7 +34,11 @@ $(document).ready(function () {
         return false;
     });
     
-
+      //event listener when page is loaded
+  /*  $(window).focus(function(e) {
+        location.reload();
+    });*/
+    
 
 });
 

@@ -73,6 +73,12 @@ $("body").on( "change", "#district",function() {
     loadSchools();
 });
 
+  //event listener when page is loaded
+  $(window).focus(function(e) {
+    location.reload();
+});
+
+
 
 
 });
