@@ -49,10 +49,10 @@ class Document extends DatabaseObject {
             $sql .= "WHERE doc_status = {$docStatus} ";
         }
         else if($docStatus != 0 && strlen($searchTerm)>2) {
-            $sql .= "WHERE (doc_status = {$docStatus} AND (doc_trackingnum LIKE '$searchTerm%' OR doc_name LIKE '$searchTerm%' OR doc_owner LIKE '$searchTerm%')) ";
+            $sql .= "WHERE (doc_status = {$docStatus} AND (doc_trackingnum LIKE '%$searchTerm%' OR doc_name LIKE '%$searchTerm%' OR doc_owner LIKE '%$searchTerm%')) ";
         }
         else if(strlen($searchTerm)>2){
-            $sql .= "WHERE (doc_trackingnum LIKE '$searchTerm%' OR doc_name LIKE '$searchTerm%' OR doc_owner LIKE '$searchTerm%') ";
+            $sql .= "WHERE (doc_trackingnum LIKE '%$searchTerm%' OR doc_name LIKE '%$searchTerm%' OR doc_owner LIKE '%$searchTerm%') ";
         }
         
         

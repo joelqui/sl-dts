@@ -60,6 +60,26 @@ class User extends DatabaseObject {
         return $object_array;
     }
 
+    public function get_searched_incoming($searchTerm) {
+        global $database;
+        $sql = "SELECT documents.doc_id, CONCAT(documents.doc_trackingnum,'-',documents.doc_code,'-',documents.doc_type) AS doc_code, ";
+        $sql .= "doc_name, doc_owner, date_started, TIMESTAMPDIFF(DAY,documents_history.timestamp,NOW()) AS queue ";
+        $sql .= "FROM documents ";
+        $sql .= "INNER JOIN documents_history ON documents.doc_id = documents_history.doc_id ";
+        $sql .= "WHERE documents_history.is_last=true ";
+        $sql .= "AND documents_history.dept_id=".$_SESSION['dept_id'];
+        $sql .= " AND documents_history.dochist_type=2";
+        $sql .= " AND (doc_trackingnum LIKE '%$searchTerm%' OR doc_name LIKE '%$searchTerm%' OR doc_owner LIKE '%$searchTerm%') ";
+
+      //  echo $sql;
+        $result_set = $database->query($sql);
+        $object_array = array();
+        while ($row = $database->fetch_array($result_set)){
+            $object_array[] = $row;
+        }
+        return $object_array;
+    }
+
     public function get_onqueue() {
         global $database;
         $sql = "SELECT documents.doc_id, CONCAT(documents.doc_trackingnum,'-',documents.doc_code,'-',documents.doc_type) AS doc_code, ";
@@ -68,9 +88,27 @@ class User extends DatabaseObject {
         $sql .= "INNER JOIN documents_history ON documents.doc_id = documents_history.doc_id ";
         $sql .= "WHERE documents_history.is_last=true ";
         $sql .= "AND documents_history.user_id=".$this->user_id;
-    
         $sql .= " AND (documents_history.dochist_type=1 OR documents_history.dochist_type=4)";
 
+    
+        $result_set = $database->query($sql);
+        $object_array = array();
+        while ($row = $database->fetch_array($result_set)){
+            $object_array[] = $row;
+        }
+        return $object_array;
+    }
+
+      public function get_searched_onqueue($searchTerm) {
+        global $database;
+        $sql = "SELECT documents.doc_id, CONCAT(documents.doc_trackingnum,'-',documents.doc_code,'-',documents.doc_type) AS doc_code, ";
+        $sql .= "doc_name, doc_owner, date_started, TIMESTAMPDIFF(DAY,documents_history.timestamp,NOW()) AS queue ";
+        $sql .= "FROM documents ";
+        $sql .= "INNER JOIN documents_history ON documents.doc_id = documents_history.doc_id ";
+        $sql .= "WHERE documents_history.is_last=true ";
+        $sql .= "AND documents_history.user_id=".$this->user_id;
+        $sql .= " AND (documents_history.dochist_type=1 OR documents_history.dochist_type=4)";
+        $sql .= " AND (doc_trackingnum LIKE '%$searchTerm%' OR doc_name LIKE '%$searchTerm%' OR doc_owner LIKE '%$searchTerm%') ";
     
         $result_set = $database->query($sql);
         $object_array = array();
@@ -90,6 +128,27 @@ class User extends DatabaseObject {
         $sql .= "AND documents_history.user_id=".$this->user_id;
         //$sql .= "AND documents_history.user_id=4";
         $sql .= " AND documents_history.dochist_type=2";
+
+       echo $sql;
+        $result_set = $database->query($sql);
+        $object_array = array();
+        while ($row = $database->fetch_array($result_set)){
+            $object_array[] = $row;
+        }
+        return $object_array;
+    }
+
+    public function get_searched_forwarded($searchTerm) {
+        global $database;
+        $sql = "SELECT documents.doc_id, CONCAT(documents.doc_trackingnum,'-',documents.doc_code,'-',documents.doc_type) AS doc_code, ";
+        $sql .= "doc_name, doc_owner, date_started, TIMESTAMPDIFF(DAY,documents_history.timestamp,NOW()) AS queue ";
+        $sql .= "FROM documents ";
+        $sql .= "INNER JOIN documents_history ON documents.doc_id = documents_history.doc_id ";
+        $sql .= "WHERE documents_history.is_last=true ";
+        $sql .= "AND documents_history.user_id=".$this->user_id;
+        //$sql .= "AND documents_history.user_id=4";
+        $sql .= " AND documents_history.dochist_type=2";
+        $sql .= " AND (doc_trackingnum LIKE '%$searchTerm%' OR doc_name LIKE '%$searchTerm%' OR doc_owner LIKE '%$searchTerm%') ";
 
        echo $sql;
         $result_set = $database->query($sql);

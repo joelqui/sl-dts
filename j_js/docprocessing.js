@@ -106,6 +106,15 @@ $(document).ready(function () {
     $(window).focus(function(e) {
         location.reload();
     });
+
+    //event listener for key enter in search textbox
+    $("body").on( "keyup", "#doc_search",function() {
+ 
+         retrieveIncoming();
+         retrieveOnQueue();
+         retrieveForwarded();
+
+    });
     
 
 
@@ -116,21 +125,28 @@ $(document).ready(function () {
 
 //retrieve incoming documents list
 function retrieveIncoming() {
-    $.get("../j_php/incomingdocs_retrieve.php",function(data){
+    $.get("../j_php/incomingdocs_retrieve.php",{
+        doc_search: $("#doc_search").val()
+        },
+        function(data){
         $("#incomingList optgroup").html(data);
         });
 }
 
 //retrieve on queue documents list
 function retrieveOnQueue() {
-    $.get("../j_php/onqueuedocs_retrieve.php",function(data){
+    $.get("../j_php/onqueuedocs_retrieve.php",{
+        doc_search: $("#doc_search").val()
+        },function(data){
         $("#onQueueList optgroup").html(data);
         });
 }
 
 //retrieve forwarded documents list
 function retrieveForwarded() {
-    $.get("../j_php/forwardeddocs_retrieve.php",function(data){
+    $.get("../j_php/forwardeddocs_retrieve.php",{
+        doc_search: $("#doc_search").val()
+        },function(data){
         $("#outgoingList optgroup").html(data);
         });
 }
