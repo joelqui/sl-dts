@@ -5,6 +5,7 @@ require_once('database.php');
 class SMSNotification {
     public $doc_trackingnum;
     public $doc_mobilenum=639989720348;
+    public $doc_name="";
     public $curent_dept;
     private $counter=0;
 
@@ -26,8 +27,8 @@ class SMSNotification {
 
     public function notify_cancelled() {
         $msg ='sl-dts update on doc#';
-        $msg .= $this->doc_trackingnum;
-        $msg .= ': Canceled @ ';
+        $msg .= $this->doc_trackingnum.': '.$this->doc_name;
+        $msg .= ', Canceled @ ';
         $msg .= $this->current_dept;
         $msg .= ', Please call the Division Office @ (053)570-8933 or email @ southernleyte.division@deped.gov.ph.';
     
@@ -38,8 +39,8 @@ class SMSNotification {
 
     public function notify_completed() {
         $msg ='sl-dts update on doc#';
-        $msg .= $this->doc_trackingnum;
-        $msg .= ': Completed @ ';
+        $msg .= $this->doc_trackingnum.': '.$this->doc_name;
+        $msg .= ', Completed @ ';
         $msg .= $this->current_dept;
         $msg .= '.';
     
@@ -50,8 +51,8 @@ class SMSNotification {
 
     public function notify_received() {
         $msg ='sl-dts update on doc#';
-        $msg .= $this->doc_trackingnum;
-        $msg .= ': Received @ ';
+        $msg .= $this->doc_trackingnum.': '.$this->doc_name;
+        $msg .= ', Received @ ';
         $msg .= $this->current_dept;
         $msg .= '. You may follow up using this document tracking number.';
     
@@ -64,13 +65,16 @@ class SMSNotification {
     public function notify_remarks($remarks) {
         //global $database;
         $msg ='sl-dts update on doc#';
-        $msg .= $this->doc_trackingnum;
-        $msg .= ': Remarks added @ ';
-        $msg .= $this->current_dept;
-        $msg .= ', ';
-        
+        $msg .= $this->doc_trackingnum.': '.$this->doc_name.".\n";
+
         $small = strtoupper(substr($remarks, 0, 95));
         $msg .= $small;
+
+        $msg .= ",\nRemarks added @ ";
+        $msg .= $this->current_dept;
+        $msg .= ".";
+        
+        
         if($this->send($msg)){
             return true;
         }
