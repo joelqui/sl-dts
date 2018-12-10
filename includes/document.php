@@ -44,7 +44,7 @@ class Document extends DatabaseObject {
     public static function count_all_same_doc_status($docStatus,$searchTerm) {
         global $database; 
         $sql = "SELECT COUNT(*) from documents "; 
-        $sql .= "LEFT JOIN documents_history ON documents.doc_id = documents_history.doc_id AND documents_history.is_last = 1 ";
+        //$sql .= "LEFT JOIN documents_history ON documents.doc_id = documents_history.doc_id AND documents_history.is_last = 1 ";
         if($docStatus != 0 && strlen($searchTerm)<3){
             $sql .= "WHERE doc_status = {$docStatus} ";
         }
