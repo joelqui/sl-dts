@@ -16,7 +16,7 @@ if($d){
     echo $html;
 }
 else {
-    echo 'Document not found!';
+    echo 'shit is not found!';
 }
 
 
