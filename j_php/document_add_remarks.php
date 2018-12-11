@@ -10,6 +10,7 @@ if($flag == 1){
     
     //sample notification for remarks
     $s = new SMSNotification();
+    $s->doc_name = substr($doc->doc_name, 0, 60);
     $s->doc_mobilenum = $doc->doc_mobilenum;
     $s->doc_trackingnum = $doc->doc_trackingnum;
     $s->notify_remarks($shortened_remarks);

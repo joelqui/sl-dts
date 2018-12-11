@@ -13,6 +13,7 @@ if($newdoc->add_document()) {
 
     //sample notification for received
     $s = new SMSNotification();
+    $s->doc_name = substr($newdoc->doc_name, 0, 60);
     $s->doc_mobilenum = $newdoc->doc_mobilenum;
     $s->doc_trackingnum = $newdoc->doc_trackingnum;
     $s->notify_received();
