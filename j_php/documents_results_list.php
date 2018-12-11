@@ -36,7 +36,7 @@ else if(strlen($searchTerm)>2){
 }
 
    
-$sql .= "ORDER BY doc_trackingnum DESC ";
+//$sql .= "ORDER BY doc_trackingnum DESC ";
 $sql .= "LIMIT {$per_page} ";
 $sql .= "OFFSET {$pagination->offset()}";
 
