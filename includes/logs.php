@@ -33,55 +33,55 @@ class logs {
   //  $content=date("Y-m-d H:i:s", time()).": ".$_SESSION['username']." logged in.\r";
     public function login() {
 
-        $log = date("Y-m-d H:i:s", time()).": ".$this->username." logged in.\r";
+        $log = date("Y-m-d H:i:s", time()).": ".$this->username." logged in @ ".$_SERVER['REMOTE_ADDR'].".\r";
         $this->save($log);
     }
 
     public function logout() {
         
-        $log = date("Y-m-d H:i:s", time()).": ".$this->username." logged out.\r";
+        $log = date("Y-m-d H:i:s", time()).": ".$this->username." logged out @ ".$_SERVER['REMOTE_ADDR'].".\r";
         $this->save($log);
     }
 
     public function add_document() {
         
-        $log = date("Y-m-d H:i:s", time()).": ".$this->username." added document#".$this->doc_trackingnum.".\r";
+        $log = date("Y-m-d H:i:s", time()).": ".$this->username." added document#".$this->doc_trackingnum." @ ".$_SERVER['REMOTE_ADDR'].".\r";
         $this->save($log);
     }
 
     public function accept_document() {
         
-        $log = date("Y-m-d H:i:s", time()).": ".$this->username." received document#".$this->doc_trackingnum.".\r";
+        $log = date("Y-m-d H:i:s", time()).": ".$this->username." received document#".$this->doc_trackingnum." @ ".$_SERVER['REMOTE_ADDR'].".\r";
         $this->save($log);
     }
 
     public function add_remarks() {
         
-        $log = date("Y-m-d H:i:s", time()).": ".$this->username." added remarks to document#".$this->doc_trackingnum.".\r";
+        $log = date("Y-m-d H:i:s", time()).": ".$this->username." added remarks to document#".$this->doc_trackingnum." @ ".$_SERVER['REMOTE_ADDR'].".\r";
         $this->save($log);
     }
 
     public function forward_document() {
         
-        $log = date("Y-m-d H:i:s", time()).": ".$this->username." forwarded document#".$this->doc_trackingnum.".\r";
+        $log = date("Y-m-d H:i:s", time()).": ".$this->username." forwarded document#".$this->doc_trackingnum." @ ".$_SERVER['REMOTE_ADDR'].".\r";
         $this->save($log);
     }
 
     public function cforward_document() {
         
-        $log = date("Y-m-d H:i:s", time()).": ".$this->username." cancelled the forwarding of document#".$this->doc_trackingnum.".\r";
+        $log = date("Y-m-d H:i:s", time()).": ".$this->username." cancelled the forwarding of document#".$this->doc_trackingnum." @ ".$_SERVER['REMOTE_ADDR'].".\r";
         $this->save($log);
     }
 
     public function mark_completed() {
         
-        $log = date("Y-m-d H:i:s", time()).": ".$this->username." marked document#".$this->doc_trackingnum." completed.\r";
+        $log = date("Y-m-d H:i:s", time()).": ".$this->username." marked document#".$this->doc_trackingnum." completed @ ".$_SERVER['REMOTE_ADDR'].".\r";
         $this->save($log);
     }
 
     public function mark_cancelled() {
         
-        $log = date("Y-m-d H:i:s", time()).": ".$this->username." marked document#".$this->doc_trackingnum." cancelled.\r";
+        $log = date("Y-m-d H:i:s", time()).": ".$this->username." marked document#".$this->doc_trackingnum." cancelled @ ".$_SERVER['REMOTE_ADDR'].".\r";
         $this->save($log);
     }
 
