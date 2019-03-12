@@ -2,6 +2,8 @@ $(document).ready(function () {
     var dept = $("#usernameHolder").data('dept');
     console.log($("#viewSelect").val());
     
+    $("#doc_search").val("#");
+
     getDocList(1);
    // getDocList(0,1,64);
 

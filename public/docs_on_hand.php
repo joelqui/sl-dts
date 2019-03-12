@@ -67,7 +67,9 @@ if(!isset($_SESSION['usertype'])) {
                 <div class="col-9" style="margin:20px 0px;height:32px;">
                     <h4 style="color:rgb(134,142,150);padding:0px 120px;width:476px;">Process Documents</h4>
                 </div>
-                <div class="col-3" style="margin:20px 0px;height:32px;"><input class="visible" type="text" id="doc_search" placeholder="Search Documents" style="width:150px;height:35px;font-size:12px;"></div>
+                <div class="col-3" style="margin:20px 0px;height:32px;">
+                
+                <input class="visible" type="text" id="doc_search" placeholder="Search Documents" style="width:150px;height:35px;font-size:12px;" autocomplete="off"></div>
             </div>
             <div class="row" style="width:1100px;font-size:12px;height:504px;padding:0px 0px;margin:0px 0px;">
                 <div class="col-auto my-auto" style="margin:0px;width:260px;height:449px;padding:0px 0px;"><select multiple="" id="incomingList" style="height:460px;width:250px;"><optgroup label="***INCOMING">

@@ -1,8 +1,12 @@
 $(document).ready(function () {
     
+    $("#doc_search").val("#");
+    
     retrieveIncoming();
     retrieveOnQueue();
     retrieveForwarded();
+
+    
 
     loadDepts();
      $("#incomingButtons button,#onQueueButtons button,#outgoingButtons button").attr("disabled", "disabled");
